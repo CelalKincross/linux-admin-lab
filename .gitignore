@@ -1,0 +1,40 @@
+# Project reference files (not to be pushed)
+day1.txt
+job_requirements.txt
+overview.txt
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Pages documents
+*.pages
+
+# Temporary files
+*~
+*.swp
+*.swo
+*.tmp
+
+# Editor directories
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Logs
+*.log
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
