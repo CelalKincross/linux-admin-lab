@@ -56,25 +56,12 @@ linux-admin-lab/
 
 ## Purpose
 
-**Dual Purpose:**
-1. **Portfolio Demonstration** - Showcase operational skills for research computing support roles
-2. **Learning Lab** - Comprehensive, hands-on learning environment for Linux administration and Ansible
-
-This lab demonstrates:
+This lab demonstrates operational skills required for research computing support roles:
 - Linux system administration in academic environments
 - Multi-user management and permission boundaries
 - Automation and scripting for sustainable operations
 - Documentation and knowledge transfer
 - Project planning and systematic execution
-
-## Learning Materials
-
-This project includes comprehensive learning resources:
-- **[LEARNING.md](LEARNING.md)** - Learning journal and progress tracking
-- **[learning/concepts/](learning/concepts/)** - Detailed concept explanations
-- **[learning/exercises/](learning/exercises/)** - Hands-on practice exercises
-- **[learning/cheatsheets/](learning/cheatsheets/)** - Command reference guides
-- **[PORTFOLIO.md](PORTFOLIO.md)** - Job application mapping and interview prep
 
 ## Project Timeline
 
