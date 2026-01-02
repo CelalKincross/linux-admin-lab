@@ -34,7 +34,73 @@ hostnamectl  # Verified correct hostname
 ```
 
 ### Blockers/Issues
-None - VMs configured successfully on first attempt
+## 1. CD-ROM Unmount Warning After Ubuntu VM Install
+# Issue:
+Installer reported failure to unmount installation media
+
+# Cause:
+ISO still attached to VM virtual CD drice
+
+# Resolution:
+Detached ISO form VM config
+
+# Lesson:
+Post-Install cleanup matters to avoid boot/mount isssues
+
+## 2. Incorrect Hostname/IP Mapping 
+# Issue: 
+Two VMs had their IP addresses mapped to the wrong hostnames
+
+# Cause:
+Manual edits to /etc/hosts without validations of host to ip mappings 
+
+# Resolution: 
+Corrected mappings on all VMs then verified vis SSH
+
+# Lesson:
+Name resolution needs to be validated early
+Automate
+
+## 3. SSH Host Key Verification Failure
+# Issue: 
+After correcting hostname to IP mappings in /etc/hosts, SSH connections failed with a *remote host identication has changed warning*  
+
+# Cause:
+SSH caches host keys per hostname. Changing the IP associated with a hostname caused a mismatch between the stored key and the acutal host. 
+
+# Resolution:
+Removed stale entries using:
+```bash
+ssh-keygetn -R <hostname>
+```
+and re-established trust on next connection
+
+# Lesson: 
+Hostname/IP consistancy matters, and SSH host key warnings are a security feature, not an error. 
+
+## 4. SSH + sudo Failing in Centralized Command loop
+# Issue; 
+Running sudo commands via SSH loop faile with: 
+*a terminal is required to read the password*
+
+# Cause: 
+SSH non-interactive commands do not allocate a TTY by default; sudo requires a TTY to prompt credentials
+```bash
+for host in lab-compute lab-admin lab-backup; do
+echo "Setting timezone on $host"
+ssh $host "sudo timedatectl set-timezone Asia/Taipei" # preferred timezone at time of creation
+done
+```
+the sudo command requires a terminal 
+
+# Resolution: 
+Re-ran commands using -t flag for the TTY:
+```bash
+ssh -t $host "sudo ..."
+```
+
+# Lesson:
+Privilege escalation behavior must be considered when executing remote or automated commands. 
 
 ## Afternoon Session
 
