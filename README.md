@@ -67,6 +67,44 @@ This lab demonstrates operational skills required for research computing support
 
 Built over 7 days with daily progress tracking. See [logs/](logs/) for detailed daily notes.
 
+### Progress
+
+- ✅ **Day 1** - Environment Setup & Architecture (2026-01-01)
+  - 3 VMs configured with role separation
+  - SSH access and networking established
+  - Git repository and documentation framework
+  - [View log](logs/day1.md)
+
+- ✅ **Day 2** - Multi-User Administration & Permissions (2026-01-02)
+  - User and group management (alice, bob, carol)
+  - Group-based access control with setgid directories
+  - Layered permission model (general + project isolation)
+  - [View log](logs/day2.md) | [View documentation](docs/permissions.md)
+
+- ⏳ **Day 3** - Services & systemd (Planned)
+  - SSH hardening (key-based authentication)
+  - Custom systemd service creation
+  - Service management and troubleshooting
+
+- ⏳ **Day 4** - Backup & Recovery (Planned)
+  - rsync-based backup workflows
+  - Disaster recovery procedures
+  - Scheduled backup jobs
+
+- ⏳ **Day 5** - Python Automation (Planned)
+  - User onboarding scripts
+  - Health monitoring automation
+  - Scheduled maintenance tasks
+
+- ⏳ **Day 6** - Ansible Configuration (Planned)
+  - Light configuration management
+  - Repeatable provisioning
+
+- ⏳ **Day 7** - Documentation & Portfolio (Planned)
+  - Finalize all documentation
+  - Resume bullet mapping
+  - Project presentation
+
 ## Documentation
 
 All technical documentation is in the [docs/](docs/) directory:

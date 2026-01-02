@@ -5,12 +5,13 @@
 ## Resume Bullets
 
 ### 1. Linux System Administration
-Built and administered a multi-user Linux research computing environment with role-based access controls, shared project storage, and clear separation of administrative, compute, and backup responsibilities across 3 Ubuntu Server VMs.
+Built and administered a multi-user Linux research computing environment with role-based access controls, shared project storage, and clear separation of administrative, compute, and backup responsibilities across 3 Ubuntu Server VMs. Implemented setgid-based collaboration model for automatic group ownership inheritance, enabling seamless file sharing among research team members. Designed layered access control with general collaboration directory (`/research`, 2775) and project-specific isolation (`/research/project1`, 2770) to balance openness and data protection.
 
 **Evidence:**
-- [architecture.md](architecture.md) - System design
-- [docs/permissions.md](docs/permissions.md) - Access control implementation
-- [logs/](logs/) - Daily progress demonstrating systematic approach
+- [architecture.md](architecture.md) - System design with 3-VM separation of concerns
+- [docs/permissions.md](docs/permissions.md) - Comprehensive access control implementation with setgid directories
+- [logs/day1.md](logs/day1.md) - 4 troubleshooting scenarios with root cause analysis
+- [logs/day2.md](logs/day2.md) - Multi-user administration implementation and validation
 
 ---
 
@@ -55,12 +56,13 @@ Produced comprehensive technical documentation designed for research contexts, i
 ---
 
 ### 6. Project Planning & Execution
-Planned and executed a 7-day lab build with daily progress tracking, demonstrating project management discipline and systematic problem-solving approach.
+Planned and executed a 7-day lab build with daily progress tracking, demonstrating project management discipline and systematic problem-solving approach. Days 1-2 complete (environment setup and multi-user administration), with documented troubleshooting of 4 real issues encountered during implementation.
 
 **Evidence:**
-- [logs/](logs/) - Daily progress logs
-- Structured project organization
-- Clear milestone tracking and completion
+- [logs/day1.md](logs/day1.md) - Environment setup with troubleshooting documentation (SSH TTY issues, hostname mapping errors)
+- [logs/day2.md](logs/day2.md) - Multi-user administration with problem-first learning approach
+- Structured project organization with separation of public portfolio and private learning materials
+- Clear milestone tracking showing systematic execution
 
 ---
 

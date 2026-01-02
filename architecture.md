@@ -58,14 +58,29 @@ All VMs operate on a shared network with:
 - SSH access for remote administration
 - Clearly defined communication patterns between nodes
 
-## Future Work
-- Multi-user access controls with role-based permissions
-- Automated user onboarding from CSV data
-- Backup and recovery workflows using rsync
-- systemd service management for operational tasks
-- Python-based automation for maintenance and health checks
-- Comprehensive documentation for lab users and administrators
-- Integration of compute node with research workflows
+## Implementation Status
+
+### Completed
+
+**Day 1 - Environment & Architecture (2026-01-01)**
+- ✅ Three Ubuntu Server VMs configured and networked
+- ✅ SSH access established across all systems
+- ✅ Git repository and documentation framework initialized
+
+**Day 2 - Multi-User Administration (2026-01-02)**
+- ✅ User and group model implemented (alice, bob, carol; researchers, project1 groups)
+- ✅ Group-based access controls with setgid directories
+- ✅ Two-tier permission model: general collaboration (`/research`) and project isolation (`/research/project1`)
+- ✅ Comprehensive permissions documentation for research staff
+
+### Planned
+
+**Days 3-7:**
+- systemd service management and SSH hardening (Day 3)
+- Backup and recovery workflows using rsync (Day 4)
+- Python-based automation for user onboarding and health checks (Day 5)
+- Light Ansible automation for configuration management (Day 6)
+- Documentation finalization and portfolio presentation (Day 7)
 
 ## Target Use Case
 This lab is designed to demonstrate operational competency in:
