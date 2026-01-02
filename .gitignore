@@ -8,6 +8,9 @@ learning/
 LEARNING.md
 personal/
 
+# Claude Code session state (internal)
+.claude/
+
 # macOS
 .DS_Store
 .AppleDouble

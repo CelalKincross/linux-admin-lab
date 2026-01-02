@@ -2,7 +2,7 @@
 
 **Date:** 2026-01-02
 **Planned Outcomes:** Implement group-based access control with collaborative file ownership
-**Status:** In Progress (Parts 1-4 completed)
+**Status:** ✅ Complete
 
 ## Lab Scope
 
@@ -418,24 +418,28 @@ sudo chmod 2770 /research/project1           # Enforce isolation
 
 **Lesson:** Always explicitly set permissions on project directories. Inherited permissions rarely match security requirements.
 
-## Current Status
+## Day 2 Summary
 
-**Completed:**
+**All objectives completed:**
 - ✅ User model designed (alice, bob, carol + groups)
 - ✅ Three researcher accounts created and verified
 - ✅ `researchers` group created with correct membership
 - ✅ Shared `/research` directory created
 - ✅ Initial permissions applied (775) - problem identified
-- ✅ **setgid fix applied (2775) - collaboration enabled**
-- ✅ **project1 group created with selective membership**
-- ✅ **Project directory isolated (2770) - access enforced**
-- ✅ **Access control validated (alice/bob yes, carol no)**
+- ✅ setgid fix applied (2775) - collaboration enabled
+- ✅ project1 group created with selective membership
+- ✅ Project directory isolated (2770) - access enforced
+- ✅ Access control validated (alice/bob yes, carol no)
+- ✅ Cross-user collaboration tested and verified
+- ✅ Permission inheritance behavior documented
 
-**Next Steps (Parts 7-11):**
-- Complete remaining verification and documentation
-- Create additional project examples if needed
-- Finalize permission model documentation
-- Update personal interview notes
+**Implementation Notes:**
+
+This implementation diverged from the original plan in `personal/overview.txt` (which called for faculty/grad/undergrad groups with /data directories). Instead, a simpler but equally effective model was implemented:
+- General collaboration: `researchers` group with `/research` (2775)
+- Project isolation: `project1` group with `/research/project1` (2770)
+
+This approach demonstrates the same multi-user administration concepts while being more focused and easier to explain in interviews.
 
 ## Key Learnings
 
