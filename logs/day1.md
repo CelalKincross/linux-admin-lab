@@ -34,56 +34,55 @@ hostnamectl  # Verified correct hostname
 ```
 
 ### Blockers/Issues
-## 1. CD-ROM Unmount Warning After Ubuntu VM Install
-# Issue:
+**1. CD-ROM Unmount Warning After Ubuntu VM Install**
+**Issue:**
 Installer reported failure to unmount installation media
 
-# Cause:
-ISO still attached to VM virtual CD drice
+**Cause:**
+ISO still attached to VM virtual CD drive
 
-# Resolution:
-Detached ISO form VM config
+**Resolution:**
+Detached ISO from VM config
 
-# Lesson:
-Post-Install cleanup matters to avoid boot/mount isssues
+**Lesson:**
+Post-install cleanup matters to avoid boot/mount issues
 
-## 2. Incorrect Hostname/IP Mapping 
-# Issue: 
+**2. Incorrect Hostname/IP Mapping**
+**Issue:**
 Two VMs had their IP addresses mapped to the wrong hostnames
 
-# Cause:
+**Cause:**
 Manual edits to /etc/hosts without validations of host to ip mappings 
 
-# Resolution: 
-Corrected mappings on all VMs then verified vis SSH
+**Resolution:**
+Corrected mappings on all VMs then verified via SSH
 
-# Lesson:
-Name resolution needs to be validated early
-Automate
+**Lesson:**
+Name resolution should be validated immediately after configuration. Consider automating /etc/hosts management for multi-VM environments to prevent mapping errors.
 
-## 3. SSH Host Key Verification Failure
-# Issue: 
-After correcting hostname to IP mappings in /etc/hosts, SSH connections failed with a *remote host identication has changed warning*  
+**3. SSH Host Key Verification Failure**
+**Issue:**
+After correcting hostname to IP mappings in /etc/hosts, SSH connections failed with a *remote host identification has changed warning*
 
-# Cause:
-SSH caches host keys per hostname. Changing the IP associated with a hostname caused a mismatch between the stored key and the acutal host. 
+**Cause:**
+SSH caches host keys per hostname. Changing the IP associated with a hostname caused a mismatch between the stored key and the actual host.
 
-# Resolution:
+**Resolution:**
 Removed stale entries using:
 ```bash
-ssh-keygetn -R <hostname>
+ssh-keygen -R <hostname>
 ```
 and re-established trust on next connection
 
-# Lesson: 
-Hostname/IP consistancy matters, and SSH host key warnings are a security feature, not an error. 
+**Lesson:**
+Hostname/IP consistency matters, and SSH host key warnings are a security feature, not an error. Always investigate these warnings rather than blindly accepting new keys. 
 
-## 4. SSH + sudo Failing in Centralized Command loop
-# Issue; 
-Running sudo commands via SSH loop faile with: 
+**4. SSH + sudo Failing in Centralized Command Loop**
+**Issue:**
+Running sudo commands via SSH loop failed with:
 *a terminal is required to read the password*
 
-# Cause: 
+**Cause:**
 SSH non-interactive commands do not allocate a TTY by default; sudo requires a TTY to prompt credentials
 ```bash
 for host in lab-compute lab-admin lab-backup; do
@@ -93,14 +92,14 @@ done
 ```
 the sudo command requires a terminal 
 
-# Resolution: 
-Re-ran commands using -t flag for the TTY:
+**Resolution:**
+Re-ran commands using -t flag to allocate a TTY:
 ```bash
-ssh -t $host "sudo ..."
+ssh -t $host "sudo timedatectl set-timezone Asia/Taipei"
 ```
 
-# Lesson:
-Privilege escalation behavior must be considered when executing remote or automated commands. 
+**Lesson:**
+When automating sudo commands over SSH, either use the `-t` flag to allocate a TTY, or configure passwordless sudo for specific commands in `/etc/sudoers.d/`. Privilege escalation behavior must be explicitly handled in remote automation. 
 
 ## Afternoon Session
 
