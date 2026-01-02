@@ -186,24 +186,258 @@ This is a **common misconfiguration** in real research environments. Stopping he
 2. Awareness of file creation inheritance behavior
 3. Ability to identify collaboration failures before they cause data issues
 
+## Part 5 - Fix Collaboration with setgid
+
+### The Problem Recap
+
+From Part 4, we observed:
+- Files created in `/research` inherited users' primary groups (alice, bob)
+- Should inherit directory's group (researchers) for collaboration
+- Solution needed: automatic, scalable, no manual intervention
+
+### The Solution: setgid Bit
+
+**Applied setgid to `/research`:**
+```bash
+sudo chmod 2775 /research
+```
+
+**Permission breakdown:**
+- `2` → setgid bit (enables group inheritance)
+- `7` → owner (root) full access
+- `7` → group (researchers) full access
+- `5` → others read + execute
+
+**Verification:**
+```bash
+ls -ld /research
+# Expected: drwxrwsr-x root researchers /research
+```
+
+**Key indicator:** The `s` in group permissions (`rws`) confirms setgid is active.
+
+### Testing the Fix
+
+**Created new files:**
+```bash
+# As alice
+su - alice
+cd /research
+touch alice-new
+exit
+
+# As bob
+su - bob
+cd /research
+touch bob-new
+exit
+```
+
+**Verified ownership:**
+```bash
+ls -l /research
+```
+
+**Result:**
+```
+-rw-r--r-- alice researchers alice-new
+-rw-r--r-- bob   researchers bob-new
+```
+
+**Success criteria met:**
+- Owner: Still individual users (alice, bob) ✅
+- Group: Now `researchers` (inherited from directory) ✅
+
+### Collaboration Validation
+
+**Test cross-user editing:**
+```bash
+su - bob
+echo "edit by bob" >> /research/alice-new
+exit
+```
+
+**Result:** Success - Bob can edit Alice's file because both share the `researchers` group ownership.
+
+### Why setgid is the Correct Solution
+
+**✅ Advantages:**
+- Automatic and centralized
+- Scales to new users without admin intervention
+- Matches real research environment patterns
+- No manual file ownership changes needed
+- Enforces consistent collaboration policy
+
+**❌ Why NOT chmod 777:**
+- Destroys ownership control
+- Security risk (world-writable)
+- Fails compliance audits
+- Considered a red flag in professional environments
+
+**❌ Why NOT manual chown:**
+- Doesn't scale with user growth
+- Reactive instead of preventative
+- Error-prone and time-consuming
+
+### Technical Insight
+
+**setgid behavior on directories:**
+- For executables: Process runs with group's permissions
+- For directories: New files/subdirectories inherit directory's group
+- This is exactly what shared research spaces require
+
+## Part 6 - Project-Specific Isolation
+
+### Goal
+
+Implement restricted access where:
+- Only selected researchers access project data
+- Other researchers explicitly denied
+- Admin retains control
+- Collaboration works within project boundaries
+
+### Implementation
+
+**1. Create project group:**
+```bash
+sudo groupadd project1
+```
+
+**2. Add authorized users (alice, bob only):**
+```bash
+sudo usermod -aG project1 alice
+sudo usermod -aG project1 bob
+# carol deliberately excluded
+```
+
+**Verification:**
+```bash
+getent group project1
+# Expected: project1:x:1002:alice,bob
+```
+
+**3. Create project directory:**
+```bash
+sudo mkdir /research/project1
+```
+
+**4. Configure ownership and permissions:**
+```bash
+sudo chown root:project1 /research/project1
+sudo chmod 2770 /research/project1
+```
+
+**Permission breakdown:**
+- `2` → setgid (group inheritance within project)
+- `7` → owner (root) full access
+- `7` → group (project1) full access
+- `0` → **no access for others** (isolation enforced)
+
+**Result:**
+```bash
+ls -ld /research/project1
+# drwxrws--- root project1 /research/project1
+```
+
+### Access Control Testing
+
+**Alice (project member) - should succeed:**
+```bash
+su - alice
+cd /research/project1
+touch alice-project
+exit
+```
+Result: ✅ Success
+
+**Bob (project member) - should succeed:**
+```bash
+su - bob
+cd /research/project1
+touch bob-project
+exit
+```
+Result: ✅ Success
+
+**Carol (not in project1) - should fail:**
+```bash
+su - carol
+cd /research/project1
+# Permission denied
+```
+Result: ✅ Success (denial is correct behavior)
+
+### Collaboration Within Project
+
+**Verified cross-editing within project:**
+```bash
+su - bob
+echo "edit by bob" >> /research/project1/alice-project
+exit
+```
+
+**Why this works:**
+- Files inherit `project1` group (setgid)
+- Both alice and bob are `project1` members
+- Group has write permissions (7)
+
+### What Was Achieved
+
+**Layered access model:**
+```
+/research (775, group: researchers)
+  ├── General files → all researchers can access
+  └── /research/project1 (770, group: project1)
+        └── Project files → only alice & bob can access
+```
+
+**Design characteristics:**
+- Group-based isolation (no ACLs needed)
+- Automatic inheritance (setgid on both levels)
+- Zero manual file ownership management
+- Admin-owned infrastructure (root owns directories)
+- Scales cleanly as projects are added/removed
+
+### Permission Inheritance Insight
+
+**Initial state after mkdir:**
+When `/research/project1` was created, it inherited:
+- Group: `researchers` (from parent directory)
+- Permissions: `drwxr-sr-x` (based on umask + inherited setgid)
+
+**Problem with inherited state:**
+- Group members could read but not write
+- Non-members could still see directory contents
+- Insufficient for project collaboration
+
+**Fix applied:**
+```bash
+sudo chown root:project1 /research/project1  # Change group
+sudo chmod 2770 /research/project1           # Enforce isolation
+```
+
+**Lesson:** Always explicitly set permissions on project directories. Inherited permissions rarely match security requirements.
+
 ## Current Status
 
 **Completed:**
-- ✅ User model designed
+- ✅ User model designed (alice, bob, carol + groups)
 - ✅ Three researcher accounts created and verified
 - ✅ `researchers` group created with correct membership
 - ✅ Shared `/research` directory created
-- ✅ Initial permissions applied (775)
-- ✅ Collaboration problem identified and documented
+- ✅ Initial permissions applied (775) - problem identified
+- ✅ **setgid fix applied (2775) - collaboration enabled**
+- ✅ **project1 group created with selective membership**
+- ✅ **Project directory isolated (2770) - access enforced**
+- ✅ **Access control validated (alice/bob yes, carol no)**
 
-**Next Steps:**
-- Fix file ownership inheritance using setgid bit
-- Create project-specific directories with isolated access
-- Test access control enforcement
-- Validate collaboration workflows
-- Document final permission model
+**Next Steps (Parts 7-11):**
+- Complete remaining verification and documentation
+- Create additional project examples if needed
+- Finalize permission model documentation
+- Update personal interview notes
 
-## Key Learnings (So Far)
+## Key Learnings
 
 1. **Isolation First:** Users should start isolated. Shared access is granted intentionally, not by default.
 
@@ -214,6 +448,14 @@ This is a **common misconfiguration** in real research environments. Stopping he
 4. **Default Behavior Matters:** Understanding what Linux does automatically (primary group inheritance) is as important as what you configure explicitly.
 
 5. **Problem-First Learning:** Observing the collaboration failure before applying the fix builds deeper understanding than following a recipe.
+
+6. **setgid is Critical for Collaboration:** The setgid bit on directories changes file creation behavior - new files inherit the directory's group instead of the user's primary group. This is the foundation of scalable multi-user collaboration.
+
+7. **Layered Access Control:** General access (`/research`) and restricted access (`/research/project1`) can coexist using different group assignments. This mirrors real research IT where base collaboration and project isolation must both exist.
+
+8. **Inheritance vs. Intent:** When creating subdirectories, inherited permissions may not match security requirements. Always explicitly configure project directory permissions rather than relying on inheritance.
+
+9. **Testing as Users:** Never assume permissions work - always test access by switching to actual user accounts (su - username), not just checking with ls -l as admin.
 
 ## Technical Commands Reference
 
