@@ -106,13 +106,54 @@ This document provides authoritative documentation links for all tools, commands
 
 ---
 
+## Day 4 — Shared Storage with NFS
+
+### NFS (Network File System)
+
+- **exports**: [https://man7.org/linux/man-pages/man5/exports.5.html](https://man7.org/linux/man-pages/man5/exports.5.html)
+  NFS server export table configuration
+
+- **nfs**: [https://man7.org/linux/man-pages/man5/nfs.5.html](https://man7.org/linux/man-pages/man5/nfs.5.html)
+  NFS filesystem options and behavior
+
+- **exportfs**: [https://man7.org/linux/man-pages/man8/exportfs.8.html](https://man7.org/linux/man-pages/man8/exportfs.8.html)
+  Maintain table of exported NFS filesystems
+
+### Mounting & Filesystem Management
+
+- **mount**: [https://man7.org/linux/man-pages/man8/mount.8.html](https://man7.org/linux/man-pages/man8/mount.8.html)
+  Mount a filesystem
+
+- **umount**: [https://man7.org/linux/man-pages/man8/umount.8.html](https://man7.org/linux/man-pages/man8/umount.8.html)
+  Unmount filesystems
+
+- **fstab**: [https://man7.org/linux/man-pages/man5/fstab.5.html](https://man7.org/linux/man-pages/man5/fstab.5.html)
+  Static filesystem mount configuration
+
+- **systemd.mount**: [https://www.freedesktop.org/software/systemd/man/systemd.mount.html](https://www.freedesktop.org/software/systemd/man/systemd.mount.html)
+  systemd mount unit configuration
+
+- **systemd.automount**: [https://www.freedesktop.org/software/systemd/man/systemd.automount.html](https://www.freedesktop.org/software/systemd/man/systemd.automount.html)
+  systemd automount unit configuration
+
+### Network Services
+
+- **rpcinfo**: [https://man7.org/linux/man-pages/man8/rpcinfo.8.html](https://man7.org/linux/man-pages/man8/rpcinfo.8.html)
+  Report RPC information (for NFS diagnostics)
+
+### Ubuntu NFS
+
+- **Ubuntu NFS Guide**: [https://ubuntu.com/server/docs/service-nfs](https://ubuntu.com/server/docs/service-nfs)
+  Official Ubuntu Server NFS documentation
+
+---
+
 ## Future Days
 
-References for Days 4-7 will be added as those sections are completed:
+References for Days 5-7 will be added as those sections are completed:
 
-- **Day 4**: Shared storage (NFS, mounting, UID/GID consistency)
-- **Day 5**: Automation (Bash scripting, Ansible basics)
-- **Day 6**: Monitoring & backups (rsync, systemd timers, cron)
+- **Day 5**: Automation (Bash scripting, Python automation)
+- **Day 6**: Ansible & Configuration Management
 - **Day 7**: Documentation & portfolio finalization
 
 ---

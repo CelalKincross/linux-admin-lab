@@ -88,10 +88,12 @@ Built over 7 days with daily progress tracking. See [logs/](logs/) for detailed 
   - Configuration validation with sshd -T
   - [View log](logs/day3.md)
 
-- ⏳ **Day 4** - Backup & Recovery (Planned)
-  - rsync-based backup workflows
-  - Disaster recovery procedures
-  - Scheduled backup jobs
+- ✅ **Day 4** - Shared Storage with NFS (2026-01-03)
+  - Centralized storage on lab-admin with NFS server
+  - lab-compute mounts /research transparently
+  - Permission enforcement across NFS (server-side)
+  - Persistent, non-blocking mounts with automount
+  - [View log](logs/day4.md)
 
 - ⏳ **Day 5** - Python Automation (Planned)
   - User onboarding scripts
