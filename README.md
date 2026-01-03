@@ -81,10 +81,12 @@ Built over 7 days with daily progress tracking. See [logs/](logs/) for detailed 
   - Layered permission model (general + project isolation)
   - [View log](logs/day2.md) | [View documentation](docs/permissions.md)
 
-- ⏳ **Day 3** - Services & systemd (Planned)
-  - SSH hardening (key-based authentication)
-  - Custom systemd service creation
-  - Service management and troubleshooting
+- ✅ **Day 3** - SSH Access Control & Hardening (2026-01-03)
+  - SSH restriction via AllowGroups (control vs compute separation)
+  - SSH key-based authentication for administrators
+  - Password authentication disabled on admin nodes
+  - Configuration validation with sshd -T
+  - [View log](logs/day3.md)
 
 - ⏳ **Day 4** - Backup & Recovery (Planned)
   - rsync-based backup workflows
@@ -109,6 +111,7 @@ Built over 7 days with daily progress tracking. See [logs/](logs/) for detailed 
 
 All technical documentation is in the [docs/](docs/) directory:
 - [Architecture](architecture.md) - System design and rationale
+- [REFERENCES.md](REFERENCES.md) - Authoritative documentation links organized by day
 - Additional documentation will be added as the project progresses
 
 ## Author

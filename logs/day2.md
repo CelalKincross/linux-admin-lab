@@ -482,3 +482,25 @@ su - <username>
 # Group membership (append mode)
 sudo usermod -aG <group> <user>
 ```
+
+---
+
+## References — Day 2
+
+### Users & Groups
+
+- **adduser**: [https://man7.org/linux/man-pages/man8/adduser.8.html](https://man7.org/linux/man-pages/man8/adduser.8.html)
+- **useradd**: [https://man7.org/linux/man-pages/man8/useradd.8.html](https://man7.org/linux/man-pages/man8/useradd.8.html)
+- **groupadd**: [https://man7.org/linux/man-pages/man8/groupadd.8.html](https://man7.org/linux/man-pages/man8/groupadd.8.html)
+- **usermod**: [https://man7.org/linux/man-pages/man8/usermod.8.html](https://man7.org/linux/man-pages/man8/usermod.8.html)
+- **getent**: [https://man7.org/linux/man-pages/man1/getent.1.html](https://man7.org/linux/man-pages/man1/getent.1.html)
+
+### Files & Permissions
+
+- **chmod**: [https://man7.org/linux/man-pages/man1/chmod.1.html](https://man7.org/linux/man-pages/man1/chmod.1.html)
+- **chown**: [https://man7.org/linux/man-pages/man1/chown.1.html](https://man7.org/linux/man-pages/man1/chown.1.html)
+- **umask**: [https://man7.org/linux/man-pages/man2/umask.2.html](https://man7.org/linux/man-pages/man2/umask.2.html)
+
+### Permission Concepts
+
+- **setgid directory bit**: [https://man7.org/linux/man-pages/man1/chmod.1.html#SETUID,_SETGID,_AND_STICKY_BITS](https://man7.org/linux/man-pages/man1/chmod.1.html#SETUID,_SETGID,_AND_STICKY_BITS)

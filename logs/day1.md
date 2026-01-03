@@ -207,3 +207,23 @@ git commit -m "initial commit message"
 - Plan directory structure for /data hierarchy
 - Review permission concepts (owner, group, other; rwx)
 - Prepare test scenarios for permission validation
+
+---
+
+## References — Day 1
+
+### Linux Basics
+
+- **hostnamectl**: [https://man7.org/linux/man-pages/man1/hostnamectl.1.html](https://man7.org/linux/man-pages/man1/hostnamectl.1.html)
+- **ip**: [https://man7.org/linux/man-pages/man8/ip.8.html](https://man7.org/linux/man-pages/man8/ip.8.html)
+- **uname**: [https://man7.org/linux/man-pages/man1/uname.1.html](https://man7.org/linux/man-pages/man1/uname.1.html)
+
+### SSH Basics
+
+- **ssh**: [https://man.openbsd.org/ssh](https://man.openbsd.org/ssh)
+- **known_hosts**: [https://man.openbsd.org/ssh_config#known_hosts](https://man.openbsd.org/ssh_config#known_hosts)
+
+### Ubuntu Server
+
+- **Ubuntu Server Guide**: [https://ubuntu.com/server/docs](https://ubuntu.com/server/docs)
+- **Netplan networking**: [https://netplan.readthedocs.io/](https://netplan.readthedocs.io/)
