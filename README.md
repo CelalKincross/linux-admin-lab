@@ -118,6 +118,10 @@ All technical documentation is in the [docs/](docs/) directory:
 
 Built by Yang Lee as a portfolio demonstration for research computing support roles.
 
+## Development Tools
+
+This project was developed with assistance from [Claude Code](https://claude.com/claude-code), Anthropic's official CLI for Claude, which supported documentation, planning, and project organization tasks.
+
 ## License
 
 This project is for educational and portfolio demonstration purposes.
