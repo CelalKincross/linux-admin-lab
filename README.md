@@ -95,10 +95,13 @@ Built over 7 days with daily progress tracking. See [logs/](logs/) for detailed 
   - Persistent, non-blocking mounts with automount
   - [View log](logs/day4.md)
 
-- ⏳ **Day 5** - Python Automation (Planned)
-  - User onboarding scripts
-  - Health monitoring automation
-  - Scheduled maintenance tasks
+- ✅ **Day 5** - systemd Operations & Backup Automation (2026-01-04)
+  - Custom systemd oneshot services (health checks)
+  - systemd timers for scheduled execution (replacing cron)
+  - Snapshot-style backups with rsync --link-dest
+  - Retention policy (7-day rolling snapshots)
+  - Restore testing and validation
+  - [View log](logs/day5.md)
 
 - ⏳ **Day 6** - Ansible Configuration (Planned)
   - Light configuration management

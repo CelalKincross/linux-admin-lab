@@ -116,6 +116,10 @@ This document provides authoritative documentation links for all tools, commands
 - **nfs**: [https://man7.org/linux/man-pages/man5/nfs.5.html](https://man7.org/linux/man-pages/man5/nfs.5.html)
   NFS filesystem options and behavior
 
+- **nfs**: 
+https://tldp.org/HOWTO/NFS-HOWTO/server.html
+
+
 - **exportfs**: [https://man7.org/linux/man-pages/man8/exportfs.8.html](https://man7.org/linux/man-pages/man8/exportfs.8.html)
   Maintain table of exported NFS filesystems
 
@@ -148,11 +152,46 @@ This document provides authoritative documentation links for all tools, commands
 
 ---
 
+## Day 5 — systemd Operations & Backup Automation
+
+### systemd Service Management
+
+- **systemd.service**: [https://www.freedesktop.org/software/systemd/man/systemd.service.html](https://www.freedesktop.org/software/systemd/man/systemd.service.html)
+  Service unit configuration
+
+- **systemd.timer**: [https://www.freedesktop.org/software/systemd/man/systemd.timer.html](https://www.freedesktop.org/software/systemd/man/systemd.timer.html)
+  Timer unit configuration for scheduled tasks
+
+- **systemctl**: [https://www.freedesktop.org/software/systemd/man/systemctl.html](https://www.freedesktop.org/software/systemd/man/systemctl.html)
+  Control systemd system and service manager (also referenced in Day 3)
+
+### Logging & Monitoring
+
+- **journalctl**: [https://man7.org/linux/man-pages/man1/journalctl.1.html](https://man7.org/linux/man-pages/man1/journalctl.1.html)
+  Query systemd journal
+
+- **logger**: [https://man7.org/linux/man-pages/man1/logger.1.html](https://man7.org/linux/man-pages/man1/logger.1.html)
+  Enter messages into system log
+
+### Backup & File Synchronization
+
+- **rsync**: [https://man7.org/linux/man-pages/man1/rsync.1.html](https://man7.org/linux/man-pages/man1/rsync.1.html)
+  Fast, versatile file copying tool
+
+- **rsync --link-dest**: [https://download.samba.org/pub/rsync/rsync.1#opt--link-dest](https://download.samba.org/pub/rsync/rsync.1#opt--link-dest)
+  Hardlink to files in DIR when unchanged (for snapshot-style backups)
+
+### Filesystem Tools
+
+- **mountpoint**: [https://man7.org/linux/man-pages/man1/mountpoint.1.html](https://man7.org/linux/man-pages/man1/mountpoint.1.html)
+  Check if directory is a mount point
+
+---
+
 ## Future Days
 
-References for Days 5-7 will be added as those sections are completed:
+References for Days 6-7 will be added as those sections are completed:
 
-- **Day 5**: Automation (Bash scripting, Python automation)
 - **Day 6**: Ansible & Configuration Management
 - **Day 7**: Documentation & portfolio finalization
 
@@ -170,12 +209,13 @@ References for Days 5-7 will be added as those sections are completed:
 
 ### Research Computing Best Practices
 
-- **XSEDE User Portal**: [https://portal.xsede.org/](https://portal.xsede.org/)
-  Research computing infrastructure documentation and training
+- **Access for Researchers (General knowledge, HPC)**:
+https://access-ci.org/
+
 
 - **HPC Systems Professionals**: [https://hpc-sysadmins.org/](https://hpc-sysadmins.org/)
   Community resources for research computing system administrators
 
 ---
 
-*Last updated: 2026-01-03*
+*Last updated: 2026-01-04*
