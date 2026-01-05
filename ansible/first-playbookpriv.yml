@@ -1,0 +1,11 @@
+- name: Day 6 - First Ansible Playbook Priv
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Verify priv escalation
+      command: whoami
+
+    - name: Check disk usage
+      command: df -h

@@ -51,6 +51,7 @@ linux-admin-lab/
 - Ubuntu Server 22.04 LTS
 - Python 3.x
 - systemd, rsync, SSH
+- Ansible (configuration management)
 - Bash scripting
 - Git for version control
 
@@ -103,9 +104,12 @@ Built over 7 days with daily progress tracking. See [logs/](logs/) for detailed 
   - Restore testing and validation
   - [View log](logs/day5.md)
 
-- ⏳ **Day 6** - Ansible Configuration (Planned)
-  - Light configuration management
-  - Repeatable provisioning
+- ✅ **Day 6** - Ansible Configuration Management (2026-01-05)
+  - Control node setup (Mac) with role-based inventory
+  - Ad-hoc commands for parallel execution across hosts
+  - Declarative playbooks with idempotent modules
+  - Package, file, group, and service management automation
+  - [View log](logs/day6.md)
 
 - ⏳ **Day 7** - Documentation & Portfolio (Planned)
   - Finalize all documentation

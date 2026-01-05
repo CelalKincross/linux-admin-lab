@@ -1,0 +1,10 @@
+- name: Day 6 - First Ansible Playbook
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Check who Ansible connects as
+      command: whoami
+
+    - name: Check uptime
+      command: uptime
