@@ -488,6 +488,67 @@ You now have:
 
 ---
 
+## Troubleshooting Notes
+
+### Issue 1: systemd Automount Confusion During Testing
+**Problem**: After unmounting `/research` with `sudo umount /research`, the directory appeared mounted again and health checks still reported OK.
+
+**Root Cause**: The `x-systemd.automount` option in `/etc/fstab` creates an autofs stub. Accessing `/research` (even via health check script) triggers automatic remount. The `mount` output showed:
+```
+systemd-1 on /research type autofs
+```
+
+**Resolution**: To properly test failure conditions, temporarily mask the automount unit:
+```bash
+sudo systemctl mask research.automount
+sudo umount /research
+```
+
+**Learning**: systemd automount improves reliability by remounting on-demand, but complicates failure testing. Must explicitly disable automount to validate failure detection paths in scripts.
+
+---
+
+### Issue 2: Health Check Script Appearing "Incorrect"
+**Problem**: Health check script always reported OK even after attempting to unmount `/research`.
+
+**Root Cause**: Not a script bug - automount was transparently re-mounting the filesystem before the `mountpoint` check executed.
+
+**Resolution**: Understood that script logic was correct. systemd's automatic remount behavior was protecting against the simulated failure.
+
+**Learning**: Always consider systemd behavior when testing scripts that check mount state. Layer multiple tests: check automount status, check actual mount, check filesystem accessibility.
+
+---
+
+### Issue 3: rsync Backup Script Variable Mismatch
+**Problem**: Retention cleanup failed with error:
+```
+find: '': No such file or directory
+```
+
+**Root Cause**: Script was refactored to rename `$BASE` variable to `$DEST` for clarity, but the retention logic at the end still referenced the old `$BASE` variable name. The `find` command received an empty string.
+
+**Original problematic code**:
+```bash
+DEST="/var/backups/research"
+# ... script logic ...
+find "$BASE" -maxdepth 1 -type d -name "daily-*" | sort -r | tail -n +8 | xargs -r rm -rf
+```
+
+**Fix**: Changed variable back to `$BASE` for consistency, updated all references:
+```bash
+BASE="/var/backups/research"
+# ... script logic ...
+find "$BASE" -maxdepth 1 -type d -name "daily-*" | sort -r | tail -n +8 | xargs -r rm -rf
+```
+
+**Learning**: Backup scripts should be tested with:
+- Dry runs (`rsync -n`) before production
+- Explicit logging of all operations
+- Careful variable naming consistency
+- End-to-end testing including retention cleanup
+
+---
+
 **Status**: ✅ Day 5 Complete (2026-01-04)
 
 **Next**: Day 6 - Ansible Configuration Management
