@@ -63,9 +63,3 @@ Planned and executed a 7-day lab build with daily progress tracking, demonstrati
 - [logs/day2.md](logs/day2.md) - Multi-user administration with problem-first learning approach
 - Structured project organization with separation of public portfolio and private learning materials
 - Clear milestone tracking showing systematic execution
-
----
-
-## Cover Letter Suggestion
-
-"To demonstrate my readiness for research computing support roles, I built a multi-user Linux research computing environment that simulates operational patterns common in academic IT environments. This lab includes role-based user management, automated onboarding workflows, backup/recovery procedures, and comprehensive documentation designed for a research context. The project repository is available at [GitHub link]."
