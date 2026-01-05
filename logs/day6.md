@@ -26,7 +26,7 @@ Implemented foundational Ansible automation for the lab environment, transitioni
 ansible all -a "uptime"
 ansible all -a "df -h"
 ansible admin -a "ls -ld /research"
-ansible compute -a "mount | grep research"
+ansible compute -m shell -a "mount | grep research"
 ansible all -a "whoami" --become
 ```
 
