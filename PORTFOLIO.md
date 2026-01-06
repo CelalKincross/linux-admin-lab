@@ -55,11 +55,70 @@ Produced comprehensive technical documentation designed for research contexts, i
 
 ---
 
-### 6. Project Planning & Execution
-Planned and executed a 7-day lab build with daily progress tracking, demonstrating project management discipline and systematic problem-solving approach. Days 1-2 complete (environment setup and multi-user administration), with documented troubleshooting of 4 real issues encountered during implementation.
+### 3. SSH Hardening & Access Control (Day 3)
+Configured SSH security controls to restrict administrative access and enforce key-based authentication. Implemented group-based SSH access restrictions (`AllowGroups`), disabled password and PAM authentication, and validated effective configuration using `sshd -T`. Separated control-plane access (admin-only) from compute-plane access (researchers allowed).
 
 **Evidence:**
-- [logs/day1.md](logs/day1.md) - Environment setup with troubleshooting documentation (SSH TTY issues, hostname mapping errors)
-- [logs/day2.md](logs/day2.md) - Multi-user administration with problem-first learning approach
+- [logs/day3.md](logs/day3.md) - SSH hardening implementation
+- Modular SSH configuration using `/etc/ssh/sshd_config.d/` for maintainability
+- Distinction between authentication methods (hardening) and policy enforcement
+- Troubleshooting PAM re-enabling password prompts despite `PasswordAuthentication no`
+
+---
+
+### 4. Shared Storage with NFS (Day 4)
+Deployed centralized NFS storage to provide transparent shared filesystem access across compute nodes. Configured `/research` directory on lab-admin as authoritative storage server, exported via NFS with appropriate security options (`rw,sync,no_subtree_check`), and mounted on lab-compute with resilient automount configuration (`_netdev,x-systemd.automount`) to prevent boot blocking. Validated server-side permission enforcement across NFS, confirming setgid inheritance and project-level isolation work transparently over the network.
+
+**Evidence:**
+- [logs/day4.md](logs/day4.md) - NFS implementation and validation
+- NFS export configuration in [configs/nfs/](configs/nfs/) (reference)
+- Permission testing as different users using `sudo -u`
+- Non-blocking mount strategy with systemd automount
+
+---
+
+### 5. Operational Automation with systemd (Day 5)
+Designed and deployed custom systemd services and timers for automated health monitoring and backup operations. Created oneshot health check service on lab-compute to verify `/research` mount availability every 5 minutes, logging results via journald with dedicated tags. Implemented snapshot-style backup automation on lab-admin using rsync with `--link-dest` for space-efficient daily snapshots, 7-day retention policy, and automated cleanup. Validated restore procedures to ensure backup integrity.
+
+**Evidence:**
+- [logs/day5.md](logs/day5.md) - systemd services, timers, and backup automation
+- [scripts/check-research.sh](scripts/check-research.sh) - Health check automation
+- [scripts/backup-research.sh](scripts/backup-research.sh) - Snapshot-style backup with retention
+- [configs/systemd/](configs/systemd/) - Service and timer unit files
+- Troubleshooting systemd automount behavior during failure testing
+- Understanding of `Type=oneshot`, timer scheduling, and journald logging
+
+---
+
+### 6. Configuration Management with Ansible (Day 6)
+Implemented Ansible configuration management for multi-server Linux environment, transitioning from manual SSH operations to declarative playbooks. Designed role-based inventory structure separating admin, compute, and backup nodes. Progressed from ad-hoc commands to idempotent playbooks using declarative modules (apt, file, group, service) instead of command/shell. Understood critical distinction between `command` module (non-idempotent) and declarative modules (idempotent state enforcement).
+
+**Evidence:**
+- [logs/day6.md](logs/day6.md) - Ansible fundamentals and configuration management
+- [ansible/inventory.ini](ansible/inventory.ini) - Role-based host inventory
+- [ansible/modules-playbook.yml](ansible/modules-playbook.yml) - Idempotent automation playbook
+- Troubleshooting shell pipes with `command` module vs `shell` module
+- Understanding of control node architecture (Mac) managing managed nodes (VMs)
+
+---
+
+### 7. Documentation & Technical Writing
+Produced comprehensive technical documentation designed for research computing contexts, including system architecture, operational procedures, troubleshooting guides, and daily progress logs. Created learning materials (command cheatsheets, concept guides) and maintained clear separation between public portfolio materials and private interview preparation.
+
+**Evidence:**
+- [docs/permissions.md](docs/permissions.md) - Comprehensive permission model documentation
+- [architecture.md](architecture.md) - System design and rationale
+- [logs/](logs/) - Six days of detailed progress tracking with troubleshooting scenarios
+- [learning/cheatsheets/](learning/cheatsheets/) - Command reference materials
+- [REFERENCES.md](REFERENCES.md) - Authoritative documentation links organized by topic
+
+---
+
+### 8. Project Planning & Execution
+Planned and executed a 6-day lab build with daily progress tracking, demonstrating project management discipline and systematic problem-solving approach. Documented 15+ real troubleshooting scenarios encountered during implementation (SSH TTY allocation, hostname mapping errors, systemd automount confusion, Ansible shell module limitations, group dependency failures).
+
+**Evidence:**
+- [logs/day1.md](logs/day1.md) through [logs/day6.md](logs/day6.md) - Daily progress with troubleshooting
 - Structured project organization with separation of public portfolio and private learning materials
 - Clear milestone tracking showing systematic execution
+- Each day includes "Key Learnings" and "Troubleshooting Notes" sections

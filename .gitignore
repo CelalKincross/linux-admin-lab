@@ -8,7 +8,7 @@ learning/
 LEARNING.md
 personal/
 
-# Claude Code session state (internal)
+# Session state
 .claude/
 
 # macOS

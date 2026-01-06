@@ -13,19 +13,6 @@
           - git
         state: present
     
-    - name: Ensure researcher group exists
-      group:
-        name: researchers
-        state: present
-    
-    - name: Ensure /research directory exists with correct permisions
-      file:
-        path: /research
-        state: directory
-        owner: root
-        group: researchers
-        mode: "2775"
-    
     - name: Ensure SSH servce is running and enabled
       service: 
         name: ssh 

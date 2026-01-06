@@ -188,11 +188,95 @@ https://tldp.org/HOWTO/NFS-HOWTO/server.html
 
 ---
 
+## Day 6 — Ansible Configuration Management
+
+### Ansible Core
+
+- **Ansible Documentation**: [https://docs.ansible.com/ansible/latest/](https://docs.ansible.com/ansible/latest/)
+  Official Ansible documentation
+
+- **Getting Started Guide**: [https://docs.ansible.com/ansible/latest/getting_started/](https://docs.ansible.com/ansible/latest/getting_started/)
+  Introduction to Ansible concepts and first playbook
+
+- **ansible command**: [https://docs.ansible.com/ansible/latest/cli/ansible.html](https://docs.ansible.com/ansible/latest/cli/ansible.html)
+  CLI tool for ad-hoc task execution
+
+- **ansible-playbook command**: [https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html)
+  Runs Ansible playbooks
+
+### Inventory
+
+- **Inventory Guide**: [https://docs.ansible.com/ansible/latest/inventory_guide/index.html](https://docs.ansible.com/ansible/latest/inventory_guide/index.html)
+  How to build and use inventory
+
+- **Inventory Plugins**: [https://docs.ansible.com/ansible/latest/plugins/inventory.html](https://docs.ansible.com/ansible/latest/plugins/inventory.html)
+  Dynamic inventory sources
+
+### Playbooks
+
+- **Playbook Guide**: [https://docs.ansible.com/ansible/latest/playbook_guide/index.html](https://docs.ansible.com/ansible/latest/playbook_guide/index.html)
+  Complete guide to Ansible playbooks
+
+- **YAML Syntax**: [https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html](https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html)
+  YAML syntax for Ansible
+
+- **Playbook Best Practices**: [https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html)
+  Tips and best practices
+
+### Modules
+
+- **Module Index**: [https://docs.ansible.com/ansible/latest/collections/index_module.html](https://docs.ansible.com/ansible/latest/collections/index_module.html)
+  Complete list of Ansible modules
+
+- **ansible.builtin collection**: [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html)
+  Core modules included with Ansible
+
+- **apt module**: [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html)
+  Manages apt packages
+
+- **file module**: [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html)
+  Manage files and file properties
+
+- **copy module**: [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html)
+  Copy files to remote locations
+
+- **service module**: [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html)
+  Manage services
+
+- **systemd module**: [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html)
+  Manage systemd units
+
+- **group module**: [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html)
+  Add or remove groups
+
+- **command module**: [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/command_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/command_module.html)
+  Execute commands on targets (no shell features)
+
+- **shell module**: [https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html)
+  Execute shell commands on targets
+
+### Configuration
+
+- **Ansible Configuration**: [https://docs.ansible.com/ansible/latest/reference_appendices/config.html](https://docs.ansible.com/ansible/latest/reference_appendices/config.html)
+  ansible.cfg configuration file options
+
+- **Privilege Escalation**: [https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_privilege_escalation.html](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_privilege_escalation.html)
+  Understanding privilege escalation (become)
+
+### Concepts
+
+- **Idempotency**: [https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html#term-Idempotency](https://docs.ansible.com/ansible/latest/reference_appendices/glossary.html#term-Idempotency)
+  Understanding idempotent operations
+
+- **Check Mode (Dry Run)**: [https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_checkmode.html](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_checkmode.html)
+  Running playbooks without making changes
+
+---
+
 ## Future Days
 
-References for Days 6-7 will be added as those sections are completed:
+References for Day 7 will be added when completed:
 
-- **Day 6**: Ansible & Configuration Management
 - **Day 7**: Documentation & portfolio finalization
 
 ---

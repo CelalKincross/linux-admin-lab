@@ -1,0 +1,11 @@
+[Unit]
+Description=Backup /research to local storage
+After=remote-fs.target
+Wants=remote-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/backup-research.sh
+
+[Install]
+WantedBy=multi-user.target

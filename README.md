@@ -21,20 +21,35 @@ For detailed architecture documentation, see [architecture.md](architecture.md)
 linux-admin-lab/
 ├── README.md                 # This file
 ├── architecture.md           # System design and rationale
+├── LEARNING.md               # Learning journal and progress tracking
+├── PORTFOLIO.md              # Resume bullets and portfolio mapping
+├── REFERENCES.md             # Authoritative documentation links by day
 ├── docs/                     # Technical documentation
-│   ├── permissions.md        # User & group management
-│   ├── services.md           # systemd service management
-│   ├── backup_recovery.md    # Backup workflows
-│   ├── onboarding.md         # User onboarding procedures
-│   └── daily_ops.md          # Operational procedures
+│   └── permissions.md        # User & group management guide
 ├── logs/                     # Daily progress tracking
 │   ├── day1.md              # Environment setup
 │   ├── day2.md              # Multi-user administration
-│   └── ...
-├── automation/              # Python automation scripts
-├── configs/                 # Configuration templates
-├── scripts/                 # Helper scripts
-└── ansible/                 # Light automation (optional)
+│   ├── day3.md              # SSH access control & hardening
+│   ├── day4.md              # Shared storage with NFS
+│   ├── day5.md              # systemd operations & backup automation
+│   └── day6.md              # Ansible configuration management
+├── learning/                # Learning materials and references
+│   ├── cheatsheets/        # Command reference sheets
+│   ├── concepts/           # Concept explanations
+│   └── exercises/          # Practice exercises
+├── scripts/                 # Bash automation scripts (reference copies)
+│   ├── check-research.sh   # Health check for /research mount
+│   └── backup-research.sh  # Snapshot-style backup script
+├── configs/                 # Configuration file templates
+│   ├── systemd/            # systemd service and timer units
+│   ├── ssh/                # SSH configuration snippets
+│   └── nfs/                # NFS export examples
+├── ansible/                 # Ansible automation
+│   ├── inventory.ini       # Host inventory
+│   ├── ansible.cfg         # Ansible configuration
+│   └── *.yml               # Playbooks
+└── personal/                # Private materials (gitignored)
+    └── interview-prep.md   # Interview preparation
 ```
 
 ## Key Features
@@ -126,10 +141,6 @@ All technical documentation is in the [docs/](docs/) directory:
 ## Author
 
 Built by Yang Lee as a portfolio demonstration for research computing support roles.
-
-## Development Tools
-
-This project was developed with assistance from [Claude Code](https://claude.com/claude-code), Anthropic's official CLI for Claude, which supported documentation, planning, and project organization tasks.
 
 ## License
 

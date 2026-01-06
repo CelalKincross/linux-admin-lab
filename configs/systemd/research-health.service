@@ -1,0 +1,11 @@
+[Unit]
+Description=Check availability of /research storage
+After=remote-fs.target
+Wants=remote-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/check-research.sh
+
+[Install]
+WantedBy=multi-user.target

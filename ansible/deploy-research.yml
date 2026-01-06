@@ -1,0 +1,40 @@
+- name: Day 6 Part 5/6 - Deploy research health check (lab-compute)
+  hosts: compute
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Ensure managed script directory exists
+      file:
+        path: /usr/local/bin
+        state: directory
+        mode: "0755"
+
+    - name: Deploy research health check script
+      copy: 
+        src: files/research-check.sh
+        dest: /usr/local/bin/research-check.sh
+        owner: root
+        group: root
+        mode: "0755"
+    
+    - name: Deploy research health systemd service
+      copy: 
+        src: files/research-health.service
+        dest: /etc/systemd/system/research-health.service
+        owner: root
+        group: root
+        mode: "0644"
+      notify: 
+        - reload systemd
+        - Enable and start research health service
+    
+  handlers:
+    - name: reload systemd
+      command: systemctl daemon-reload
+    
+    - name: Enable and start research health service
+      service: 
+        name: research-health.service
+        state: restarted
+        enabled: true
