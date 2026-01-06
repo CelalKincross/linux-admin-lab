@@ -149,6 +149,7 @@ Built over 7 days with daily progress tracking. See [logs/](logs/) for detailed 
 - [Operations](docs/operations.md) - Day-to-day operational workflows and commands
 - [Automation](docs/automation.md) - Automation philosophy and configuration management approach
 - [Permissions](docs/permissions.md) - User and group management with detailed permission models
+- [Lessons Learned](docs/lessons-learned.md) - Practical lessons, mistakes, edge cases, and design decisions
 
 ### Daily Progress Logs ([logs/](logs/))
 Detailed implementation notes with troubleshooting scenarios for Days 1-7

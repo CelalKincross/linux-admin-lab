@@ -124,6 +124,7 @@ Produced comprehensive technical documentation designed for research computing c
 - [docs/operations.md](docs/operations.md) - Day-to-day operational workflows and commands
 - [docs/overview.md](docs/overview.md) - Project overview with technology justifications
 - [docs/permissions.md](docs/permissions.md) - Comprehensive permission model documentation
+- [docs/lessons-learned.md](docs/lessons-learned.md) - Documented mistakes, edge cases, and operational judgment
 - [architecture.md](architecture.md) - System design quick reference with VM specifications
 - [logs/](logs/) - Seven days of detailed progress tracking with troubleshooting scenarios
 - [learning/cheatsheets/](learning/cheatsheets/) - Command reference materials
