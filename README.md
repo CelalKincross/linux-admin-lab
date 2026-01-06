@@ -127,9 +127,13 @@ Built over 7 days with daily progress tracking. See [logs/](logs/) for detailed 
   - Portfolio documentation completed (scripts, configs, cheatsheets)
   - [View log](logs/day6.md)
 
-- 🚧 **Day 7** - In Progress (2026-01-06)
-  - Advanced topics and portfolio finalization
-  - (Details to be documented)
+- ✅ **Day 7** - Off-Host Backup & Disaster Recovery (2026-01-06)
+  - Pull-based backup architecture on dedicated backup server (lab-backup)
+  - Snapshot-style backups with rsync --link-dest for space efficiency
+  - systemd timer automation for daily backup execution
+  - 7-day retention policy with automated cleanup
+  - SSH trust model with restricted sudo privileges for security
+  - [View log](logs/day7.md)
 
 ## Documentation
 

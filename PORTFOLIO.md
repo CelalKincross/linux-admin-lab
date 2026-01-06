@@ -102,7 +102,20 @@ Implemented Ansible configuration management for multi-server Linux environment,
 
 ---
 
-### 7. Documentation & Technical Writing
+### 7. Backup & Disaster Recovery (Day 7)
+Designed and implemented off-host backup architecture using pull-based model where dedicated backup server (lab-backup) retrieves snapshots from production systems. Deployed snapshot-style backups with rsync `--link-dest` for space-efficient daily snapshots with 7-day retention policy and automated cleanup. Configured SSH trust model with key-based authentication and restricted sudo privileges (NOPASSWD for rsync only) to enable automated pulls while maintaining security boundaries. Implemented systemd timer automation on backup server for hands-off operation with centralized logging via journald.
+
+**Evidence:**
+- [logs/day7.md](logs/day7.md) - Off-host backup implementation and architecture
+- [scripts/backup-research.sh](scripts/backup-research.sh) - Pull-based snapshot backup script
+- [configs/systemd/](configs/systemd/) - systemd timer and service units for automation
+- Understanding of pull vs push backup models for security isolation
+- SSH trust configuration with privilege restriction for automation
+- Snapshot retention using hard-linking to minimize storage overhead
+
+---
+
+### 8. Documentation & Technical Writing
 Produced comprehensive technical documentation designed for research computing contexts, including system architecture, operational procedures, troubleshooting guides, and daily progress logs. Created learning materials (command cheatsheets, concept guides) and maintained clear separation between public portfolio materials and private interview preparation.
 
 **Evidence:**
@@ -114,11 +127,11 @@ Produced comprehensive technical documentation designed for research computing c
 
 ---
 
-### 8. Project Planning & Execution
-Planned and executed a 6-day lab build with daily progress tracking, demonstrating project management discipline and systematic problem-solving approach. Documented 15+ real troubleshooting scenarios encountered during implementation (SSH TTY allocation, hostname mapping errors, systemd automount confusion, Ansible shell module limitations, group dependency failures).
+### 9. Project Planning & Execution
+Planned and executed a 7-day lab build with daily progress tracking, demonstrating project management discipline and systematic problem-solving approach. Documented 15+ real troubleshooting scenarios encountered during implementation (SSH TTY allocation, hostname mapping errors, systemd automount confusion, Ansible shell module limitations, group dependency failures, pull-based backup architecture decisions).
 
 **Evidence:**
-- [logs/day1.md](logs/day1.md) through [logs/day6.md](logs/day6.md) - Daily progress with troubleshooting
+- [logs/day1.md](logs/day1.md) through [logs/day7.md](logs/day7.md) - Daily progress with troubleshooting
 - Structured project organization with separation of public portfolio and private learning materials
 - Clear milestone tracking showing systematic execution
 - Each day includes "Key Learnings" and "Troubleshooting Notes" sections

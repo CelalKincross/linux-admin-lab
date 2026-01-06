@@ -1,0 +1,16 @@
+[Unit]
+Description=Snapshot backup of /research from lab-admin (pull-based)
+Wants=network-online.target
+After=network-online.target
+
+# This service is for lab-backup (the backup server)
+# It pulls data from lab-admin:/research over SSH
+# This is different from research-backup.service which runs on lab-admin
+# for local backups
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/backup-research.sh
+
+[Install]
+WantedBy=multi-user.target

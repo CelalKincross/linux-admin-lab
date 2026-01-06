@@ -1,0 +1,14 @@
+[Unit]
+Description=Daily snapshot backup timer for research data (lab-backup)
+
+# This timer is for lab-backup (the backup server)
+# It schedules pull-based backups from lab-admin
+# This is different from research-backup.timer which runs on lab-admin
+# for local backups
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target

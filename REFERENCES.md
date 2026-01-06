@@ -273,11 +273,59 @@ https://tldp.org/HOWTO/NFS-HOWTO/server.html
 
 ---
 
-## Future Days
+## Day 7 — Off-Host Backup & Disaster Recovery
 
-References for Day 7 will be added when completed:
+### rsync Advanced Features
 
-- **Day 7**: Documentation & portfolio finalization
+- **rsync --link-dest**: [https://download.samba.org/pub/rsync/rsync.1#opt--link-dest](https://download.samba.org/pub/rsync/rsync.1#opt--link-dest)
+  Hardlink to files in DIR when unchanged (for snapshot-style backups) - also referenced in Day 5
+
+- **rsync**: [https://man7.org/linux/man-pages/man1/rsync.1.html](https://man7.org/linux/man-pages/man1/rsync.1.html)
+  Fast, versatile file copying tool - also referenced in Day 5
+
+### SSH for Automation
+
+- **ssh-keygen**: [https://man.openbsd.org/ssh-keygen](https://man.openbsd.org/ssh-keygen)
+  Authentication key generation and management - also referenced in Day 3
+
+- **authorized_keys**: [https://man.openbsd.org/sshd#AUTHORIZED_KEYS_FILE_FORMAT](https://man.openbsd.org/sshd#AUTHORIZED_KEYS_FILE_FORMAT)
+  SSH authorized keys file format and options
+
+- **SSH Best Practices**: [https://www.ssh.com/academy/ssh/public-key-authentication](https://www.ssh.com/academy/ssh/public-key-authentication)
+  Public key authentication for automation
+
+### sudo Configuration
+
+- **sudoers**: [https://man7.org/linux/man-pages/man5/sudoers.5.html](https://man7.org/linux/man-pages/man5/sudoers.5.html)
+  sudo configuration file format
+
+- **visudo**: [https://man7.org/linux/man-pages/man8/visudo.8.html](https://man7.org/linux/man-pages/man8/visudo.8.html)
+  Edit sudoers file safely
+
+- **sudo NOPASSWD security**: [https://www.sudo.ws/security/advisories/](https://www.sudo.ws/security/advisories/)
+  Understanding sudo security implications
+
+### systemd Timer Configuration
+
+- **systemd.timer**: [https://www.freedesktop.org/software/systemd/man/systemd.timer.html](https://www.freedesktop.org/software/systemd/man/systemd.timer.html)
+  Timer unit configuration - also referenced in Day 5
+
+- **OnCalendar syntax**: [https://www.freedesktop.org/software/systemd/man/systemd.time.html#Calendar%20Events](https://www.freedesktop.org/software/systemd/man/systemd.time.html#Calendar%20Events)
+  Calendar event expressions for timer scheduling
+
+- **systemd-analyze calendar**: [https://www.freedesktop.org/software/systemd/man/systemd-analyze.html](https://www.freedesktop.org/software/systemd/man/systemd-analyze.html)
+  Validate and test timer calendar expressions
+
+### Backup Best Practices
+
+- **Backup Strategies**: [https://en.wikipedia.org/wiki/Backup](https://en.wikipedia.org/wiki/Backup)
+  Overview of backup strategies and architectures
+
+- **3-2-1 Backup Rule**: [https://www.backblaze.com/blog/the-3-2-1-backup-strategy/](https://www.backblaze.com/blog/the-3-2-1-backup-strategy/)
+  Industry standard backup approach
+
+- **Pull vs Push Backups**: [https://borgbackup.readthedocs.io/en/stable/deployment.html](https://borgbackup.readthedocs.io/en/stable/deployment.html)
+  Security considerations for backup architecture
 
 ---
 
@@ -302,4 +350,4 @@ https://access-ci.org/
 
 ---
 
-*Last updated: 2026-01-04*
+*Last updated: 2026-01-06*
