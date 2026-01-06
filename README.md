@@ -137,10 +137,21 @@ Built over 7 days with daily progress tracking. See [logs/](logs/) for detailed 
 
 ## Documentation
 
-All technical documentation is in the [docs/](docs/) directory:
-- [Architecture](architecture.md) - System design and rationale
+### Quick Start
+- [README](README.md) - Project overview and status (this file)
+- [Architecture](architecture.md) - System design, VM specifications, and implementation status
+- [PORTFOLIO.md](PORTFOLIO.md) - Resume bullets and portfolio mapping
 - [REFERENCES.md](REFERENCES.md) - Authoritative documentation links organized by day
-- Additional documentation will be added as the project progresses
+
+### Technical Documentation ([docs/](docs/))
+- [Overview](docs/overview.md) - Detailed project overview and key features
+- [Architecture](docs/architecture.md) - Design philosophy, trust boundaries, and architectural decisions
+- [Operations](docs/operations.md) - Day-to-day operational workflows and commands
+- [Automation](docs/automation.md) - Automation philosophy and configuration management approach
+- [Permissions](docs/permissions.md) - User and group management with detailed permission models
+
+### Daily Progress Logs ([logs/](logs/))
+Detailed implementation notes with troubleshooting scenarios for Days 1-7
 
 ## Author
 

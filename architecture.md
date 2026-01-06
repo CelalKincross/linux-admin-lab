@@ -6,6 +6,8 @@ multiple users with shared compute and storage resources. The architecture refle
 common patterns found in university research IT environments, with clear separation
 of administrative, computational, and backup responsibilities.
 
+> **For detailed architectural philosophy and design rationale**, see [docs/architecture.md](docs/architecture.md)
+
 ## Virtual Machines
 
 ### lab-admin
@@ -60,27 +62,17 @@ All VMs operate on a shared network with:
 
 ## Implementation Status
 
-### Completed
+✅ **All 7 Days Complete** (2026-01-01 through 2026-01-06)
 
-**Day 1 - Environment & Architecture (2026-01-01)**
-- ✅ Three Ubuntu Server VMs configured and networked
-- ✅ SSH access established across all systems
-- ✅ Git repository and documentation framework initialized
+- **Day 1**: Environment setup and SSH access
+- **Day 2**: Multi-user administration with group-based permissions
+- **Day 3**: SSH hardening and access control
+- **Day 4**: Shared storage with NFS
+- **Day 5**: systemd services, timers, and backup automation
+- **Day 6**: Ansible configuration management
+- **Day 7**: Off-host backup and disaster recovery
 
-**Day 2 - Multi-User Administration (2026-01-02)**
-- ✅ User and group model implemented (alice, bob, carol; researchers, project1 groups)
-- ✅ Group-based access controls with setgid directories
-- ✅ Two-tier permission model: general collaboration (`/research`) and project isolation (`/research/project1`)
-- ✅ Comprehensive permissions documentation for research staff
-
-### Planned
-
-**Days 3-7:**
-- systemd service management and SSH hardening (Day 3)
-- Backup and recovery workflows using rsync (Day 4)
-- Python-based automation for user onboarding and health checks (Day 5)
-- Light Ansible automation for configuration management (Day 6)
-- Documentation finalization and portfolio presentation (Day 7)
+See [logs/](logs/) for detailed daily progress and troubleshooting documentation.
 
 ## Target Use Case
 This lab is designed to demonstrate operational competency in:

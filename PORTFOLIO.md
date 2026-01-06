@@ -116,12 +116,16 @@ Designed and implemented off-host backup architecture using pull-based model whe
 ---
 
 ### 8. Documentation & Technical Writing
-Produced comprehensive technical documentation designed for research computing contexts, including system architecture, operational procedures, troubleshooting guides, and daily progress logs. Created learning materials (command cheatsheets, concept guides) and maintained clear separation between public portfolio materials and private interview preparation.
+Produced comprehensive technical documentation designed for research computing contexts, including system architecture, operational procedures, troubleshooting guides, and daily progress logs. Created both implementation documentation (how-to guides) and conceptual documentation (design philosophy, architectural decisions, operational philosophy) demonstrating ability to communicate at multiple levels - from tactical commands to strategic rationale. Maintained clear separation between public portfolio materials and private interview preparation.
 
 **Evidence:**
+- [docs/architecture.md](docs/architecture.md) - Design philosophy, trust boundaries, and architectural trade-offs
+- [docs/automation.md](docs/automation.md) - Automation philosophy and incremental approach rationale
+- [docs/operations.md](docs/operations.md) - Day-to-day operational workflows and commands
+- [docs/overview.md](docs/overview.md) - Project overview with technology justifications
 - [docs/permissions.md](docs/permissions.md) - Comprehensive permission model documentation
-- [architecture.md](architecture.md) - System design and rationale
-- [logs/](logs/) - Six days of detailed progress tracking with troubleshooting scenarios
+- [architecture.md](architecture.md) - System design quick reference with VM specifications
+- [logs/](logs/) - Seven days of detailed progress tracking with troubleshooting scenarios
 - [learning/cheatsheets/](learning/cheatsheets/) - Command reference materials
 - [REFERENCES.md](REFERENCES.md) - Authoritative documentation links organized by topic
 
