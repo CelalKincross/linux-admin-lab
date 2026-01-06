@@ -119,17 +119,17 @@ Built over 7 days with daily progress tracking. See [logs/](logs/) for detailed 
   - Restore testing and validation
   - [View log](logs/day5.md)
 
-- ✅ **Day 6** - Ansible Configuration Management (2026-01-05)
+- ✅ **Day 6** - Ansible Configuration Management (2026-01-05/06)
   - Control node setup (Mac) with role-based inventory
   - Ad-hoc commands for parallel execution across hosts
   - Declarative playbooks with idempotent modules
   - Package, file, group, and service management automation
+  - Portfolio documentation completed (scripts, configs, cheatsheets)
   - [View log](logs/day6.md)
 
-- ⏳ **Day 7** - Documentation & Portfolio (Planned)
-  - Finalize all documentation
-  - Resume bullet mapping
-  - Project presentation
+- 🚧 **Day 7** - In Progress (2026-01-06)
+  - Advanced topics and portfolio finalization
+  - (Details to be documented)
 
 ## Documentation
 
