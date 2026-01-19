@@ -34,6 +34,19 @@ The HPC extension builds on the existing three-node architecture:
 - Used at most national labs and universities
 - Demonstrates understanding of batch job paradigm vs interactive computing
 
+### Monitoring (Phase 2)
+- **Prometheus**: Metrics collection and alerting on lab-admin
+- **Grafana**: Visualization dashboards
+- **Node Exporter**: Host metrics (CPU, memory, disk) on lab-compute
+
+![Grafana Dashboard](images/grafana-dashboard.png)
+
+### Alerting
+
+Proactive failure detection with NodeDown alert:
+
+![Prometheus Alert Firing](images/prometheus-alert-firing.png)
+
 ## Implementation Phases
 
 - [x] **Phase 1 — Slurm (COMPLETE)**
@@ -41,7 +54,11 @@ The HPC extension builds on the existing three-node architecture:
   - [x] 1.2 — Slurm installation (controller + compute)
   - [x] 1.3 — Job execution, accounting & failure analysis
   - [x] 1.4 — Failure injection & recovery validation
-- [ ] Phase 2 — Monitoring (Prometheus + Grafana)
+- [x] **Phase 2 — Monitoring (COMPLETE)**
+  - [x] 2.1 — Node Exporter on compute node
+  - [x] 2.2 — Prometheus on controller
+  - [x] 2.3 — Grafana dashboards
+  - [x] 2.4 — Alert rules (NodeDown)
 - [ ] Phase 3 — Containers (Apptainer/Singularity)
 - [ ] Phase 4 — Ansible automation for HPC
 - [ ] Phase 5 — Software stacks (Spack)
@@ -87,4 +104,5 @@ Shows: `sbatch` submission → `squeue` running state → output file created wi
 
 ## Related Documentation
 
-- [HPC Day 1 Log](../logs/hpc-day1.md) — Implementation details and troubleshooting
+- [HPC Day 1 Log](../logs/hpc-day1.md) — Slurm setup, accounting, failure recovery
+- [HPC Day 2 Log](../logs/hpc-day2.md) — Monitoring setup (Prometheus, Grafana, alerting)
