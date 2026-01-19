@@ -157,3 +157,125 @@ sudo systemctl restart slurmd
 3. **Start controller before workers** — Always bring up `slurmctld` first, then `slurmd` on compute nodes.
 
 4. **Error messages are precise** — "unrecognized key" tells you exactly what's wrong. Read error messages carefully.
+
+---
+
+## Phase 1.3 — Job Execution, Accounting & Failure Analysis ✅
+
+### Step 1: Node State Debugging
+
+**Symptom:** `sinfo` showed node in `down*` state:
+```
+debug* up 5:00 1 down* lab-compute
+```
+
+**Resolution:**
+```bash
+# On lab-compute
+sudo systemctl restart slurmd
+
+# On lab-admin - clear node state
+scontrol update nodename=lab-compute state=idle
+
+# Verify
+scontrol show node lab-compute
+```
+
+**Result:**
+```
+State=IDLE
+CPUTot=2
+RealMemory=1900
+```
+
+### Step 2: Slurm User & MUNGE Verification
+
+**Verified consistent Slurm UID across nodes:**
+```bash
+getent passwd slurm
+# Result: uid=64030(slurm) gid=64030(slurm)
+```
+
+**Verified cross-node MUNGE authentication:**
+```bash
+munge -n | ssh lab-compute unmunge
+# Result: STATUS: Success (0)
+```
+
+### Step 3: Accounting Setup (slurmdbd + MariaDB)
+
+**Added to `slurm.conf`:**
+```ini
+AccountingStorageType=accounting_storage/slurmdbd
+AccountingStorageHost=lab-admin
+AccountingStoragePort=6819
+AccountingStorageEnforce=associations
+```
+
+**Configured slurmdbd with MariaDB backend, then registered cluster/accounts/users:**
+```bash
+sacctmgr add cluster labcluster
+sacctmgr add account researchers cluster=labcluster
+sacctmgr add user yanglee cluster=labcluster account=researchers
+
+# Verify
+sacctmgr show associations
+```
+
+### Step 4: Job Failure Investigation (Critical Learning)
+
+**Symptom:**
+- Jobs submitted successfully but immediately completed
+- No output file created
+- `WTERMSIG 53` reported in controller log
+
+**Controller log:**
+```
+_job_complete: JobId=X WTERMSIG 53
+```
+
+**Root cause (from slurmd logs on lab-compute):**
+```
+Could not open stdout file /research/slurm/test-fail-8.out: Permission denied
+Slurmd could not connect IO
+```
+
+**Explanation:**
+1. Slurm opens stdout/stderr **on the compute node**
+2. Files are created as the submitting user
+3. Output directory lacked write permission for job user at execution time
+4. Job failed **before** user payload execution → SIGTRAP (signal 53)
+
+### Step 5: Resolution
+
+**Fix:** Ensure job runs from writable directory:
+```bash
+#SBATCH --chdir=/research/slurm
+```
+
+Or submit job while in a writable directory.
+
+**Result:** Jobs execute successfully, output files created, normal completion.
+
+### Notes: PMIx Warnings
+
+**Observed:**
+```
+MPI: Cannot create context for mpi/pmix_v5
+```
+
+**Explanation:** Slurm compiled with PMIx support but PMIx not installed. Non-blocking for non-MPI jobs — expected in lab environments.
+
+---
+
+## Key Takeaways (Interview-Grade)
+
+1. **Job failures can occur before execution** — I/O setup (stdout/stderr) happens first; permission issues kill jobs immediately
+
+2. **Accounting enforcement is strict** — Jobs rejected unless cluster, accounts, and users are fully registered in slurmdbd
+
+3. **Stdout/stderr is a compute-node concern** — The compute node creates output files, not the controller
+
+4. **Log-driven debugging is essential** — Check `slurmd`, `slurmctld`, and `slurmdbd` logs systematically
+
+5. **Small clusters exhibit real production failures** — Permission issues, node state problems, and accounting errors are the same at any scale

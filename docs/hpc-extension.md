@@ -47,7 +47,7 @@ The HPC extension builds on the existing three-node architecture:
 
 - [x] Phase 1.1 — Architecture planning
 - [x] Phase 1.2 — Slurm installation (controller + compute)
-- [ ] Phase 1.3 — Job submission validation
+- [x] Phase 1.3 — Job execution, accounting & failure analysis
 - [ ] Phase 2 — Monitoring (Prometheus + Grafana)
 - [ ] Phase 3 — Containers (Apptainer/Singularity)
 - [ ] Phase 4 — Ansible automation for HPC
@@ -57,7 +57,13 @@ The HPC extension builds on the existing three-node architecture:
 
 Key configuration locations:
 - `/etc/slurm/slurm.conf` — Main Slurm configuration (must be identical on all nodes)
+- `/etc/slurm/slurmdbd.conf` — Database daemon configuration (on controller only)
 - `/etc/munge/munge.key` — Shared authentication key
+
+### Accounting Components
+- **slurmdbd**: Database daemon storing job history, user associations, fairshare data
+- **MariaDB**: Backend database for slurmdbd
+- **sacctmgr**: CLI for managing clusters, accounts, users, and associations
 
 ## Quick Reference
 
