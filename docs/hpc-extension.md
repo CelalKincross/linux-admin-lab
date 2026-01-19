@@ -36,9 +36,11 @@ The HPC extension builds on the existing three-node architecture:
 
 ## Implementation Phases
 
-- [x] Phase 1.1 — Architecture planning
-- [x] Phase 1.2 — Slurm installation (controller + compute)
-- [x] Phase 1.3 — Job execution, accounting & failure analysis
+- [x] **Phase 1 — Slurm (COMPLETE)**
+  - [x] 1.1 — Architecture planning
+  - [x] 1.2 — Slurm installation (controller + compute)
+  - [x] 1.3 — Job execution, accounting & failure analysis
+  - [x] 1.4 — Failure injection & recovery validation
 - [ ] Phase 2 — Monitoring (Prometheus + Grafana)
 - [ ] Phase 3 — Containers (Apptainer/Singularity)
 - [ ] Phase 4 — Ansible automation for HPC

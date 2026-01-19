@@ -279,3 +279,67 @@ MPI: Cannot create context for mpi/pmix_v5
 4. **Log-driven debugging is essential** — Check `slurmd`, `slurmctld`, and `slurmdbd` logs systematically
 
 5. **Small clusters exhibit real production failures** — Permission issues, node state problems, and accounting errors are the same at any scale
+
+---
+
+## Phase 1.4 — Failure Injection & Recovery ✅
+
+**Goal:** Validate Slurm's behavior under failure — not just successful execution.
+
+### Scenario A: Compute Node Daemon Interruption
+
+```bash
+# Simulate node failure
+sudo systemctl stop slurmd
+
+# Observe
+sinfo  # Node shows DOWN
+
+# Recover
+sudo systemctl start slurmd
+```
+
+**Result:** Node returns to IDLE, scheduler resumes normal operation.
+
+### Scenario B: Job Interruption During Execution
+
+Interrupted `slurmd` while a job was running. Observed state transitions:
+
+| State | Meaning |
+|-------|---------|
+| `CG` (Completing) | Slurm detected node loss, attempting cleanup |
+| `PD` (BeginTime) | Job rescheduled, waiting for node stability |
+| `R` (Running) | Job re-executed after node recovery |
+
+**Key insight:** Slurm doesn't blindly discard jobs — it defers re-execution until the node is stable to prevent double execution and accounting inconsistencies.
+
+### Scenario C: Configuration Mismatch
+
+**Symptom:**
+```
+Node lab-compute appears to have a different slurm.conf
+```
+
+**Diagnosis:**
+```bash
+sha256sum /etc/slurm/slurm.conf  # Compare on both nodes
+```
+
+**Fix:** Sync config, restart `slurmctld` and `slurmd`.
+
+### Operational Observations
+
+These are support engineer insights:
+
+1. **Slurm does not "fix" configuration problems** — Admin intervention required
+2. **Node health ≠ job success** — Services can be "running" while jobs fail
+3. **Many failures occur after scheduling** — I/O setup, permissions, execution context
+4. **CG state is cleanup, not running** — Important distinction for troubleshooting
+
+---
+
+## Phase 1 Complete ✅
+
+**Interview one-liner:**
+
+> "I intentionally validated Slurm's behavior under failure by stopping node daemons, observing state transitions, and recovering from configuration and job-level errors. The goal was to understand operational recovery, not just successful scheduling."
