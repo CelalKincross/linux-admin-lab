@@ -350,4 +350,90 @@ https://access-ci.org/
 
 ---
 
-*Last updated: 2026-01-06*
+## HPC Extension — Slurm Job Scheduling
+
+### Slurm Workload Manager
+
+- **Slurm Documentation**: [https://slurm.schedmd.com/documentation.html](https://slurm.schedmd.com/documentation.html)
+  Official Slurm documentation and administration guide
+
+- **slurm.conf**: [https://slurm.schedmd.com/slurm.conf.html](https://slurm.schedmd.com/slurm.conf.html)
+  Main configuration file reference
+
+- **slurmctld**: [https://slurm.schedmd.com/slurmctld.html](https://slurm.schedmd.com/slurmctld.html)
+  Slurm controller daemon
+
+- **slurmd**: [https://slurm.schedmd.com/slurmd.html](https://slurm.schedmd.com/slurmd.html)
+  Slurm compute node daemon
+
+- **slurmdbd**: [https://slurm.schedmd.com/slurmdbd.html](https://slurm.schedmd.com/slurmdbd.html)
+  Slurm database daemon for accounting
+
+- **sacctmgr**: [https://slurm.schedmd.com/sacctmgr.html](https://slurm.schedmd.com/sacctmgr.html)
+  Account management for Slurm
+
+### Slurm Commands
+
+- **sbatch**: [https://slurm.schedmd.com/sbatch.html](https://slurm.schedmd.com/sbatch.html)
+  Submit batch jobs
+
+- **squeue**: [https://slurm.schedmd.com/squeue.html](https://slurm.schedmd.com/squeue.html)
+  View job queue
+
+- **sinfo**: [https://slurm.schedmd.com/sinfo.html](https://slurm.schedmd.com/sinfo.html)
+  View cluster/partition status
+
+- **scontrol**: [https://slurm.schedmd.com/scontrol.html](https://slurm.schedmd.com/scontrol.html)
+  Administrative control commands
+
+- **sacct**: [https://slurm.schedmd.com/sacct.html](https://slurm.schedmd.com/sacct.html)
+  Job accounting information
+
+### MUNGE Authentication
+
+- **MUNGE**: [https://dun.github.io/munge/](https://dun.github.io/munge/)
+  MUNGE Uid 'N' Gid Emporium - authentication service for HPC
+
+- **MUNGE Installation Guide**: [https://github.com/dun/munge/wiki/Installation-Guide](https://github.com/dun/munge/wiki/Installation-Guide)
+  Installing and configuring MUNGE
+
+---
+
+## HPC Extension — Monitoring & Observability
+
+### Prometheus
+
+- **Prometheus Documentation**: [https://prometheus.io/docs/](https://prometheus.io/docs/)
+  Official Prometheus documentation
+
+- **Prometheus Configuration**: [https://prometheus.io/docs/prometheus/latest/configuration/configuration/](https://prometheus.io/docs/prometheus/latest/configuration/configuration/)
+  prometheus.yml configuration reference
+
+- **Alerting Rules**: [https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)
+  Defining alerting rules in Prometheus
+
+- **PromQL**: [https://prometheus.io/docs/prometheus/latest/querying/basics/](https://prometheus.io/docs/prometheus/latest/querying/basics/)
+  Prometheus Query Language basics
+
+### Node Exporter
+
+- **Node Exporter**: [https://github.com/prometheus/node_exporter](https://github.com/prometheus/node_exporter)
+  Prometheus exporter for hardware and OS metrics
+
+- **Node Exporter Metrics**: [https://prometheus.io/docs/guides/node-exporter/](https://prometheus.io/docs/guides/node-exporter/)
+  Guide to using Node Exporter
+
+### Grafana
+
+- **Grafana Documentation**: [https://grafana.com/docs/grafana/latest/](https://grafana.com/docs/grafana/latest/)
+  Official Grafana documentation
+
+- **Grafana Dashboards**: [https://grafana.com/grafana/dashboards/](https://grafana.com/grafana/dashboards/)
+  Pre-built dashboard library (Node Exporter Full: ID 1860)
+
+- **Prometheus Data Source**: [https://grafana.com/docs/grafana/latest/datasources/prometheus/](https://grafana.com/docs/grafana/latest/datasources/prometheus/)
+  Configuring Prometheus as Grafana data source
+
+---
+
+*Last updated: 2026-01-19*

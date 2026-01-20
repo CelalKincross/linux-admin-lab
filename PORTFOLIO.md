@@ -140,3 +140,28 @@ Planned and executed a 7-day lab build with daily progress tracking, demonstrati
 - Structured project organization with separation of public portfolio and private learning materials
 - Clear milestone tracking showing systematic execution
 - Each day includes "Key Learnings" and "Troubleshooting Notes" sections
+
+---
+
+## HPC Extension
+
+### 10. HPC Job Scheduling with Slurm
+Configured Slurm workload manager with controller/compute architecture, MUNGE authentication, and job accounting. Deployed slurmctld on head node and slurmd on compute node with synchronized configuration. Implemented job accounting with slurmdbd and MariaDB backend, enforcing user associations. Validated operational recovery by intentionally inducing failures (node daemon interruption, configuration mismatches) and documenting state transitions (CG → PD → R).
+
+**Evidence:**
+- [logs/hpc-day1.md](logs/hpc-day1.md) - Slurm installation, accounting, and failure recovery
+- [docs/hpc-extension.md](docs/hpc-extension.md) - HPC architecture overview
+- Troubleshooting `MungeKeyFile` configuration error (invalid directive)
+- Troubleshooting `WTERMSIG 53` job failures (stdout permission denied)
+- Job state transition documentation during node recovery
+
+---
+
+### 11. Cluster Monitoring & Observability
+Implemented Prometheus-based monitoring stack with Grafana visualization for HPC cluster health. Deployed Node Exporter on compute nodes to expose hardware metrics (CPU, memory, disk, network). Configured Prometheus scraping with 15-second intervals and alert rules with `for: 1m` buffer to prevent alert fatigue. Built custom Grafana dashboard focused on "Core Four" metrics: CPU busy (job health), RAM used (OOM risk), disk usage (log buildup), and uptime (stability).
+
+**Evidence:**
+- [logs/hpc-day2.md](logs/hpc-day2.md) - Monitoring stack implementation
+- [docs/images/grafana-dashboard.png](docs/images/grafana-dashboard.png) - HPC Cluster Health dashboard
+- [docs/images/prometheus-alert-firing.png](docs/images/prometheus-alert-firing.png) - Alert validation (NodeDown firing)
+- Understanding of pull-based metrics model and alert fatigue prevention

@@ -17,6 +17,7 @@ Primary administrative server responsible for:
 - Automation scripts for onboarding and maintenance
 - System documentation and operational procedures
 - SSH access management
+- **HPC:** Slurm controller (slurmctld), job accounting (slurmdbd), Prometheus, Grafana
 
 **Specifications:**
 - 2 CPU cores
@@ -28,6 +29,7 @@ Simulated compute node used for:
 - Running research workloads and computational tasks
 - Restricted access for approved users only
 - Resource-intensive processing separate from administrative functions
+- **HPC:** Slurm worker daemon (slurmd), Node Exporter for metrics
 
 **Specifications:**
 - 2 CPU cores
@@ -62,7 +64,7 @@ All VMs operate on a shared network with:
 
 ## Implementation Status
 
-✅ **All 7 Days Complete** (2026-01-01 through 2026-01-06)
+✅ **Core Infrastructure Complete** (Days 1-7)
 
 - **Day 1**: Environment setup and SSH access
 - **Day 2**: Multi-user administration with group-based permissions
@@ -72,12 +74,22 @@ All VMs operate on a shared network with:
 - **Day 6**: Ansible configuration management
 - **Day 7**: Off-host backup and disaster recovery
 
-See [logs/](logs/) for detailed daily progress and troubleshooting documentation.
+✅ **HPC Extension** (Phases 1-2 Complete)
+
+- **Phase 1**: Slurm job scheduling with controller/compute architecture
+- **Phase 2**: Prometheus + Grafana monitoring with alerting
+- **Phase 3**: Containers (Apptainer/Singularity) — Planned
+- **Phase 4**: Ansible automation for HPC — Planned
+- **Phase 5**: Software stacks (Spack) — Planned
+
+See [logs/](logs/) for detailed daily progress and [docs/hpc-extension.md](docs/hpc-extension.md) for HPC documentation.
 
 ## Target Use Case
 This lab is designed to demonstrate operational competency in:
 - Linux system administration in a research context
 - Multi-user environment management
+- **HPC job scheduling and cluster operations**
+- **Monitoring, alerting, and failure recovery**
 - Service reliability and data protection
 - Documentation and operational procedures
 - Scalable, maintainable system design
