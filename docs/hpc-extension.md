@@ -47,6 +47,21 @@ Proactive failure detection with NodeDown alert:
 
 ![Prometheus Alert Firing](images/prometheus-alert-firing.png)
 
+### Containers (Phase 3)
+- **Apptainer**: HPC-style rootless containers on lab-compute
+- **SIF images**: Single-file format stored on shared NFS
+- **Slurm integration**: Containers executed via sbatch, not interactively
+
+#### Why Apptainer over Docker?
+
+![Apptainer vs Docker](images/apptainer-vs-docker.png)
+
+| Feature | Apptainer | Docker |
+|---------|-----------|--------|
+| Security | Rootless (user=user) | Root daemon required |
+| Storage | Single .sif file, NFS-friendly | Layers in /var/lib/docker |
+| Integration | Auto-mounts home/cwd | Manual mount required |
+
 ## Implementation Phases
 
 - [x] **Phase 1 — Slurm (COMPLETE)**
@@ -59,7 +74,10 @@ Proactive failure detection with NodeDown alert:
   - [x] 2.2 — Prometheus on controller
   - [x] 2.3 — Grafana dashboards
   - [x] 2.4 — Alert rules (NodeDown)
-- [ ] Phase 3 — Containers (Apptainer/Singularity)
+- [x] **Phase 3 — Containers (COMPLETE)**
+  - [x] 3.1 — Apptainer installation via PPA
+  - [x] 3.2 — Slurm integration (sbatch + apptainer exec)
+  - [x] 3.3 — Shared storage validation (/research binding)
 - [ ] Phase 4 — Ansible automation for HPC
 - [ ] Phase 5 — Software stacks (Spack)
 
@@ -106,3 +124,4 @@ Shows: `sbatch` submission → `squeue` running state → output file created wi
 
 - [HPC Day 1 Log](../logs/hpc-day1.md) — Slurm setup, accounting, failure recovery
 - [HPC Day 2 Log](../logs/hpc-day2.md) — Monitoring setup (Prometheus, Grafana, alerting)
+- [HPC Day 3 Log](../logs/hpc-day3.md) — Apptainer containers with Slurm integration

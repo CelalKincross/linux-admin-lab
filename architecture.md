@@ -29,7 +29,7 @@ Simulated compute node used for:
 - Running research workloads and computational tasks
 - Restricted access for approved users only
 - Resource-intensive processing separate from administrative functions
-- **HPC:** Slurm worker daemon (slurmd), Node Exporter for metrics
+- **HPC:** Slurm worker daemon (slurmd), Node Exporter for metrics, Apptainer containers
 
 **Specifications:**
 - 2 CPU cores
@@ -74,11 +74,11 @@ All VMs operate on a shared network with:
 - **Day 6**: Ansible configuration management
 - **Day 7**: Off-host backup and disaster recovery
 
-✅ **HPC Extension** (Phases 1-2 Complete)
+✅ **HPC Extension** (Phases 1-3 Complete)
 
 - **Phase 1**: Slurm job scheduling with controller/compute architecture
 - **Phase 2**: Prometheus + Grafana monitoring with alerting
-- **Phase 3**: Containers (Apptainer/Singularity) — Planned
+- **Phase 3**: Apptainer containers with Slurm integration
 - **Phase 4**: Ansible automation for HPC — Planned
 - **Phase 5**: Software stacks (Spack) — Planned
 

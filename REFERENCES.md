@@ -436,4 +436,35 @@ https://access-ci.org/
 
 ---
 
-*Last updated: 2026-01-19*
+## HPC Extension — Containers (Apptainer)
+
+### Apptainer (formerly Singularity)
+
+- **Apptainer Documentation**: [https://apptainer.org/docs/user/latest/](https://apptainer.org/docs/user/latest/)
+  Official Apptainer user guide
+
+- **Apptainer Quick Start**: [https://apptainer.org/docs/user/latest/quick_start.html](https://apptainer.org/docs/user/latest/quick_start.html)
+  Getting started with Apptainer
+
+- **Apptainer Build**: [https://apptainer.org/docs/user/latest/build_a_container.html](https://apptainer.org/docs/user/latest/build_a_container.html)
+  Building container images (SIF format)
+
+- **Apptainer Bind Mounts**: [https://apptainer.org/docs/user/latest/bind_paths_and_mounts.html](https://apptainer.org/docs/user/latest/bind_paths_and_mounts.html)
+  Mounting host directories into containers
+
+### Apptainer + Slurm Integration
+
+- **Running Apptainer with Slurm**: [https://apptainer.org/docs/user/latest/running_services.html](https://apptainer.org/docs/user/latest/running_services.html)
+  Integrating containers with job schedulers
+
+- **HPC Container Best Practices**: [https://hpc-containers.github.io/](https://hpc-containers.github.io/)
+  Community best practices for containers in HPC
+
+### Why Apptainer over Docker in HPC
+
+- **Apptainer Security Model**: [https://apptainer.org/docs/user/latest/security.html](https://apptainer.org/docs/user/latest/security.html)
+  Understanding rootless container execution
+
+---
+
+*Last updated: 2026-01-20*

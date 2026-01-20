@@ -168,7 +168,12 @@ Built over 7 days with daily progress tracking, plus ongoing HPC extension. See 
   - NodeDown alert with alert fatigue prevention
   - [View log](logs/hpc-day2.md)
 
-- ⬜ **Phase 3** - Containers (Apptainer/Singularity) — Planned
+- ✅ **Phase 3** - Containers with Apptainer (2026-01-20)
+  - Apptainer installation via PPA on compute node
+  - Single-file SIF images stored on shared NFS
+  - Slurm integration (sbatch + apptainer exec)
+  - Shared storage validation with --bind mounts
+  - [View log](logs/hpc-day3.md)
 - ⬜ **Phase 4** - Ansible Automation for HPC — Planned
 - ⬜ **Phase 5** - Software Stacks (Spack) — Planned
 

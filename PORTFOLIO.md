@@ -165,3 +165,14 @@ Implemented Prometheus-based monitoring stack with Grafana visualization for HPC
 - [docs/images/grafana-dashboard.png](docs/images/grafana-dashboard.png) - HPC Cluster Health dashboard
 - [docs/images/prometheus-alert-firing.png](docs/images/prometheus-alert-firing.png) - Alert validation (NodeDown firing)
 - Understanding of pull-based metrics model and alert fatigue prevention
+
+---
+
+### 12. HPC Containers with Apptainer
+Deployed Apptainer (formerly Singularity) for rootless container execution in HPC environment. Built single-file SIF images stored on shared NFS, integrated with Slurm for scheduler-controlled container workloads. Validated shared filesystem visibility inside containers using `--bind` mounts. Demonstrated understanding of why Apptainer is preferred over Docker in HPC (rootless, daemonless, NFS-friendly).
+
+**Evidence:**
+- [logs/hpc-day3.md](logs/hpc-day3.md) - Apptainer installation and Slurm integration
+- [docs/images/apptainer-vs-docker.png](docs/images/apptainer-vs-docker.png) - Comparison table
+- Container execution via sbatch showing user context preservation
+- Shared storage validation with /research binding
