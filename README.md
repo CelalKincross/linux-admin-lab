@@ -174,7 +174,13 @@ Built over 7 days with daily progress tracking, plus ongoing HPC extension. See 
   - Slurm integration (sbatch + apptainer exec)
   - Shared storage validation with --bind mounts
   - [View log](logs/hpc-day3.md)
-- ⬜ **Phase 4** - Ansible Automation for HPC — Planned
+
+- ✅ **Phase 4** - Ansible Automation for HPC (2026-01-20)
+  - MUNGE key distribution playbook (secrets gitignored)
+  - Slurm configuration sync playbook
+  - Monitoring and Apptainer playbooks
+  - Idempotent, handler-based service management
+  - [View log](logs/hpc-day4.md)
 - ⬜ **Phase 5** - Software Stacks (Spack) — Planned
 
 ## Documentation

@@ -9,6 +9,14 @@
         path: /usr/local/bin
         state: directory
         mode: "0755"
+        
+    - name: Ensure /research exists
+      file:
+        path: /research
+        state: directory
+        owner: root
+        group: researchers
+        mode: "2775"
 
     - name: Deploy research health check script
       copy: 

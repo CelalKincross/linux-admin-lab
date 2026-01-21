@@ -1,0 +1,20 @@
+- name: Ensure Munge consistency
+  hosts: controller:compute
+  become: true
+
+  tasks:
+    - name: Deploy munge.key
+      copy:
+        src: files/munge.key
+        dest: /etc/munge/munge.key
+        owner: munge
+        group: munge
+        mode: "0400"
+      notify: Restart Munge
+
+  handlers:
+    - name: Restart Munge
+      service:
+        name: munge
+        state: restarted
+        

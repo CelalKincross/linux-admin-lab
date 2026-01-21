@@ -176,3 +176,14 @@ Deployed Apptainer (formerly Singularity) for rootless container execution in HP
 - [docs/images/apptainer-vs-docker.png](docs/images/apptainer-vs-docker.png) - Comparison table
 - Container execution via sbatch showing user context preservation
 - Shared storage validation with /research binding
+
+---
+
+### 13. Ansible Automation for HPC
+Created idempotent Ansible playbooks to automate HPC component deployment. Implemented MUNGE key distribution with strict permissions (0400), Slurm configuration sync across nodes, node_exporter service management, and Apptainer installation. Secrets (MUNGE key) properly gitignored to prevent accidental exposure. Playbooks serve as executable documentation of cluster configuration.
+
+**Evidence:**
+- [logs/hpc-day4.md](logs/hpc-day4.md) - Ansible HPC automation implementation
+- [ansible/playbooks/](ansible/playbooks/) - Component-specific playbooks
+- Handler-based service restarts (only when config changes)
+- Separation of concerns (one playbook per component)

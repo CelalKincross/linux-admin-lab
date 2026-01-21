@@ -46,3 +46,10 @@ venv/
 *.zip
 *.tar.gz
 *.rar
+
+# Sensitive files (secrets, keys)
+**/munge.key
+**/*.key
+**/*.pem
+**/secrets/
+**/.env

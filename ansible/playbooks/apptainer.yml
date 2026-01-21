@@ -1,0 +1,9 @@
+- name: Ensure Apptainer installed
+  hosts: compute
+  become: true
+
+  tasks:
+    - name: Install apptainer
+      apt:
+        name: apptainer
+        state: present

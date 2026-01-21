@@ -74,12 +74,12 @@ All VMs operate on a shared network with:
 - **Day 6**: Ansible configuration management
 - **Day 7**: Off-host backup and disaster recovery
 
-✅ **HPC Extension** (Phases 1-3 Complete)
+✅ **HPC Extension** (Phases 1-4 Complete)
 
 - **Phase 1**: Slurm job scheduling with controller/compute architecture
 - **Phase 2**: Prometheus + Grafana monitoring with alerting
 - **Phase 3**: Apptainer containers with Slurm integration
-- **Phase 4**: Ansible automation for HPC — Planned
+- **Phase 4**: Ansible automation (MUNGE, Slurm, monitoring, containers)
 - **Phase 5**: Software stacks (Spack) — Planned
 
 See [logs/](logs/) for detailed daily progress and [docs/hpc-extension.md](docs/hpc-extension.md) for HPC documentation.

@@ -1,0 +1,10 @@
+- name: Install node exporter
+  hosts: compute
+  become: true
+
+  tasks:
+    - name: Ensure node_exporter is running
+      service:
+        name: node_exporter
+        state: started
+        enabled: true

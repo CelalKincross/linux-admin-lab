@@ -62,6 +62,18 @@ Proactive failure detection with NodeDown alert:
 | Storage | Single .sif file, NFS-friendly | Layers in /var/lib/docker |
 | Integration | Auto-mounts home/cwd | Manual mount required |
 
+### Ansible Automation (Phase 4)
+- **Idempotent playbooks**: MUNGE, Slurm, monitoring, Apptainer
+- **Single source of truth**: Configuration files in `ansible/files/`
+- **Secrets management**: MUNGE key gitignored, never committed
+
+| Playbook | Targets | Purpose |
+|----------|---------|---------|
+| `munge.yml` | controller + compute | Key distribution |
+| `slurm.yml` | controller + compute | Config sync |
+| `monitoring.yml` | compute | Node exporter |
+| `apptainer.yml` | compute | Container runtime |
+
 ## Implementation Phases
 
 - [x] **Phase 1 — Slurm (COMPLETE)**
@@ -78,7 +90,11 @@ Proactive failure detection with NodeDown alert:
   - [x] 3.1 — Apptainer installation via PPA
   - [x] 3.2 — Slurm integration (sbatch + apptainer exec)
   - [x] 3.3 — Shared storage validation (/research binding)
-- [ ] Phase 4 — Ansible automation for HPC
+- [x] **Phase 4 — Ansible Automation (COMPLETE)**
+  - [x] 4.1 — MUNGE key distribution playbook
+  - [x] 4.2 — Slurm configuration sync playbook
+  - [x] 4.3 — Monitoring (node_exporter) playbook
+  - [x] 4.4 — Apptainer installation playbook
 - [ ] Phase 5 — Software stacks (Spack)
 
 ## Configuration Files
@@ -125,3 +141,4 @@ Shows: `sbatch` submission → `squeue` running state → output file created wi
 - [HPC Day 1 Log](../logs/hpc-day1.md) — Slurm setup, accounting, failure recovery
 - [HPC Day 2 Log](../logs/hpc-day2.md) — Monitoring setup (Prometheus, Grafana, alerting)
 - [HPC Day 3 Log](../logs/hpc-day3.md) — Apptainer containers with Slurm integration
+- [HPC Day 4 Log](../logs/hpc-day4.md) — Ansible automation for HPC components
