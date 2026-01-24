@@ -10,6 +10,7 @@ personal/
 
 # Session state
 .claude/
+AGENTS.md
 
 # macOS
 .DS_Store
