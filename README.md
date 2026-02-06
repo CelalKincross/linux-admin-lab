@@ -55,7 +55,6 @@ linux-admin-lab/
 │   ├── ansible.cfg         # Ansible configuration
 │   └── *.yml               # Playbooks
 └── personal/                # Private materials (gitignored)
-    └── interview-prep.md   # Interview preparation
 ```
 
 ## Key Features
@@ -182,6 +181,18 @@ Built over 7 days with daily progress tracking, plus ongoing HPC extension. See 
   - Idempotent, handler-based service management
   - [View log](logs/hpc-day4.md)
 - ⬜ **Phase 5** - Software Stacks (Spack) — Planned
+
+### Kubernetes Extension — Planned
+
+- ⬜ **Phase 1** - Kubernetes Fundamentals
+  - K3s lightweight cluster deployment
+  - Pod and service basics
+  - Persistent storage integration
+
+- ⬜ **Phase 2** - Cluster Operations
+  - Deployment strategies and scaling
+  - ConfigMaps and Secrets management
+  - Monitoring with Prometheus stack
 
 ## Documentation
 
