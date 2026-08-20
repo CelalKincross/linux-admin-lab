@@ -6,7 +6,8 @@ overview.txt
 # Personal learning materials (private study aids)
 learning/
 LEARNING.md
-personal/
+personal
+**/personal
 
 # Session state
 .claude/
